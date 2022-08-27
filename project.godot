@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="GameTemplate"
-run/main_scene="res://addons/GameTemplate/Autoload/SplashScreen.tscn"
+run/main_scene="res://LaunchScene/LaunchScene.tscn"
 config/icon="res://icon.png"
 
 [audio]

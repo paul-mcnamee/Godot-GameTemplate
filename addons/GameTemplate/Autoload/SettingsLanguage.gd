@@ -6,7 +6,6 @@ signal ReTranslate
 var translations: = [
 	preload("res://addons/GameTemplate/Localization/Localization.en.translation"),
 	preload("res://addons/GameTemplate/Localization/Localization.es.translation"),
-	preload("res://addons/GameTemplate/Localization/Localization.fr.translation"),
 ]
 onready var Language:String = TranslationServer.get_locale() setget set_language
 var Language_dictionary:Dictionary = {EN = "en", ES = "es"}

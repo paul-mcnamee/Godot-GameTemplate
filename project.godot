@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="GameTemplate"
-run/main_scene="res://MainMenu/MainMenu.tscn"
+run/main_scene="res://LaunchScene/LaunchScene.tscn"
 config/icon="res://icon.png"
 
 [audio]
@@ -51,6 +51,7 @@ MenuEvent="*res://addons/GameTemplate/Autoload/MenuEvent.gd"
 Music="*res://addons/GameTemplate/Autoload/Music.tscn"
 SfxManager="*res://addons/GameTemplate/Autoload/SfxManager.gd"
 HtmlFocus="*res://addons/GameTemplate/Autoload/HtmlFocus.tscn"
+GlobalTimer="*res://addons/GameTemplate/Autoload/GlobalTimer.gd"
 
 [debug]
 

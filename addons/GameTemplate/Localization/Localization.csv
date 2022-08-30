@@ -10,6 +10,7 @@ CONTINUE,Continue,Continuar
 RESUME,Resume,Reanudar
 RESTART,Restart,Reiniciar
 OPTIONS,Options,Opciones
+CREDITS,Credits,Créditos
 MAIN_MENU,Main Menu,Menú principal
 BACK,Back,Atrás
 EXIT,Exit,Salir
@@ -24,6 +25,7 @@ MASTER,Master,General
 MUSIC,Music,Música
 SFX,Sounds,Efectos de Sonido
 CONTROLS,Controls,Controles
+CREDITS,Credits,Créditos
 ACTIONS,Actions,Acciones
 KEYBOARD,Keyboard,Teclado
 GAMEPAD,Gamepad,Gamepad
@@ -31,3 +33,13 @@ DEFAULT,Default,Defecto
 USE_NEW_CONTROLS,Use new control!,Usar nuevos controles!
 CANCEL,Cancel,Cancelar
 LANGUAGES,Languages,Idiomas
+BY,by,por
+PROGRAMMING,Programming,Programación
+GRAPHIC_ART,Graphic art,Arte gráfica
+SFX,Sound effects,Efectos de sonido
+TRANSLATES,Translates,Traducciones
+HISTORY,History,Historia
+TESTING,Testing,Testeo
+SPONSOR,Sponsor,Sponsor
+REVIEW,Review,Revisión
+

@@ -11,10 +11,14 @@ RESUME,Resume,Reanudar
 RESTART,Restart,Reiniciar
 OPTIONS,Options,Opciones
 CREDITS,Credits,Créditos
+GAME,Game,Juego
 MAIN_MENU,Main Menu,Menú principal
-BACK,Back,Atrás
+BACK,Back,Atras
 EXIT,Exit,Salir
 PAUSE,Pause,Pausa
+DIFFICULTY,Difficulty,Dificultad
+PACIFIC,Pacific mode,Modo pacífico
+BLOOD,Blood/Gore,Sangre/Gore
 LOADING,Loading,Cargando
 RESOLUTION,Resolution,Resolución
 FULLSCREEN,Fullscreen window,Pantalla completa
@@ -25,6 +29,9 @@ MASTER,Master,General
 MUSIC,Music,Música
 SFX,Sounds,Efectos de Sonido
 CONTROLS,Controls,Controles
+HARD,Hard,Difícil
+NORMAL,Normal,Normal
+EASY,Easy,Fácil
 CREDITS,Credits,Créditos
 ACTIONS,Actions,Acciones
 KEYBOARD,Keyboard,Teclado

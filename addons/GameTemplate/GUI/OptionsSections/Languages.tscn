@@ -12,9 +12,6 @@ margin_right = 312.0
 margin_bottom = 172.0
 custom_constants/separation = 1
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Panel" type="Panel" parent="."]
 margin_right = 304.0
@@ -28,13 +25,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="LanguagesLabel" type="Label" parent="Panel/VBoxContainer"]
 margin_right = 304.0
-margin_bottom = 34.0
+margin_bottom = 26.0
 size_flags_horizontal = 5
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 3 )
@@ -42,7 +36,7 @@ text = "Languages"
 align = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer"]
-margin_top = 38.0
+margin_top = 30.0
 margin_right = 304.0
 margin_bottom = 144.0
 size_flags_horizontal = 3
@@ -56,7 +50,7 @@ custom_constants/margin_bottom = 4
 margin_left = 5.0
 margin_top = 4.0
 margin_right = 300.0
-margin_bottom = 102.0
+margin_bottom = 110.0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_top = 145.0
@@ -72,9 +66,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 3
 custom_constants/separation = 1
 
-[node name="Back" parent="MarginContainer/VBoxContainer" groups=[
-"Languages",
-] instance=ExtResource( 6 )]
+[node name="Back" parent="MarginContainer/VBoxContainer" groups=["Languages"] instance=ExtResource( 6 )]
 margin_right = 29.0
 text = "Back"
 

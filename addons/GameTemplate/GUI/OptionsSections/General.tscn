@@ -16,9 +16,6 @@ margin_right = 312.0
 margin_bottom = 172.0
 custom_constants/separation = 1
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_right = 304.0
@@ -38,13 +35,10 @@ custom_styles/panel = ExtResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Resolution" type="Label" parent="HBoxContainer/Panel/VBoxContainer"]
 margin_right = 150.0
-margin_bottom = 34.0
+margin_bottom = 26.0
 size_flags_horizontal = 5
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 3 )
@@ -53,9 +47,9 @@ align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Panel/VBoxContainer"]
 margin_left = 29.0
-margin_top = 38.0
+margin_top = 30.0
 margin_right = 121.0
-margin_bottom = 100.0
+margin_bottom = 92.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
@@ -135,7 +129,7 @@ __meta__ = {
 
 [node name="Volume" type="Label" parent="HBoxContainer/Panel2/VBoxContainer"]
 margin_right = 150.0
-margin_bottom = 34.0
+margin_bottom = 26.0
 size_flags_horizontal = 5
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 3 )
@@ -143,9 +137,9 @@ text = "Volume"
 align = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Panel2/VBoxContainer"]
-margin_top = 38.0
+margin_top = 30.0
 margin_right = 150.0
-margin_bottom = 142.0
+margin_bottom = 134.0
 custom_constants/margin_right = 4
 custom_constants/margin_left = 5
 
@@ -219,41 +213,50 @@ size_flags_vertical = 3
 custom_constants/separation = 1
 
 [node name="Control3" type="Control" parent="MarginContainer/VBoxContainer"]
-margin_right = 38.0
+margin_right = 26.0
 margin_bottom = 19.0
 size_flags_horizontal = 3
 
-[node name="Back" parent="MarginContainer/VBoxContainer" groups=[
-"General",
-] instance=ExtResource( 9 )]
-margin_left = 39.0
-margin_right = 77.0
+[node name="Back" parent="MarginContainer/VBoxContainer" groups=["General"] instance=ExtResource( 9 )]
+margin_left = 27.0
+margin_right = 56.0
 text = "Back"
 
 [node name="Control2" type="Control" parent="MarginContainer/VBoxContainer"]
-margin_left = 78.0
-margin_right = 116.0
+margin_left = 57.0
+margin_right = 83.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+
+[node name="GameButton" parent="MarginContainer/VBoxContainer" groups=["General"] instance=ExtResource( 9 )]
+margin_left = 84.0
+margin_right = 113.0
+text = "Game"
+
+[node name="Control5" type="Control" parent="MarginContainer/VBoxContainer"]
+margin_left = 114.0
+margin_right = 140.0
 margin_bottom = 19.0
 size_flags_horizontal = 3
 
 [node name="LanguagesButton" parent="MarginContainer/VBoxContainer" instance=ExtResource( 9 )]
-margin_left = 117.0
-margin_right = 176.0
+margin_left = 141.0
+margin_right = 200.0
 text = "Languages"
 
 [node name="Control4" type="Control" parent="MarginContainer/VBoxContainer"]
-margin_left = 177.0
-margin_right = 215.0
+margin_left = 201.0
+margin_right = 227.0
 margin_bottom = 19.0
 size_flags_horizontal = 3
 
 [node name="Controls" parent="MarginContainer/VBoxContainer" instance=ExtResource( 9 )]
-margin_left = 216.0
-margin_right = 265.0
+margin_left = 228.0
+margin_right = 277.0
 text = "Controls"
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
-margin_left = 266.0
+margin_left = 278.0
 margin_right = 304.0
 margin_bottom = 19.0
 size_flags_horizontal = 3
@@ -266,6 +269,7 @@ size_flags_horizontal = 3
 [connection signal="value_changed" from="HBoxContainer/Panel2/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Music/HSlider" to="." method="_on_Music_value_changed"]
 [connection signal="value_changed" from="HBoxContainer/Panel2/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/SFX/HSlider" to="." method="_on_SFX_value_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/GameButton" to="." method="_on_Game_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/LanguagesButton" to="." method="_on_Languages_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Controls" to="." method="_on_Controls_pressed"]
 

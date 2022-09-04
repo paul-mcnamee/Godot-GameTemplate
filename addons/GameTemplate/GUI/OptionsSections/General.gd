@@ -23,6 +23,7 @@ func _ready()->void:
 	
 	MenuEvent.connect("Controls", self, "on_show_controls")
 	MenuEvent.connect("Languages", self, "on_show_languages")
+	MenuEvent.connect("Game", self, "on_show_game")
 	SettingsResolution.connect("Resized", self, "_on_Resized")
 	#Localization
 	SettingsLanguage.connect("ReTranslate", self, "retranslate")
@@ -106,8 +107,17 @@ func retranslate()->void:
 	find_node("Music").get_node("ScaleName").text 	= tr("MUSIC")
 	find_node("SFX").get_node("ScaleName").text 	= tr("SFX")
 	find_node("LanguagesButton").text 				= tr("LANGUAGES")
+	find_node("GameButton").text	 				= tr("GAME")
 	find_node("Controls").text 						= tr("CONTROLS")
 	find_node("Back").text 							= tr("BACK")
 
 func set_node_in_focus()->void:
 	var FocusGroup:Array = get_groups()
+
+func _on_Game_pressed():
+	MenuEvent.set_game(true)
+
+func on_show_game(value:bool)->void:
+	visible = !value
+	if visible:
+		get_tree().get_nodes_in_group("General")[0].grab_focus()

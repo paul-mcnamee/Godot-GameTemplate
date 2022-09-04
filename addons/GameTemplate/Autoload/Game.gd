@@ -12,6 +12,10 @@ var NextScene
 
 var loader: = ResourceAsyncLoader.new()
 
+onready var difficulty = 2 # Easy
+onready var pacific_mode = false
+onready var gore_enabled = true
+
 func _ready()->void:
 	connect("Exit",			self, "on_Exit")
 	connect("ChangeScene",	self, "on_ChangeScene")

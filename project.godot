@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Reference",
+"class": "GodotEnv_Parser",
+"language": "GDScript",
+"path": "res://addons/GameTemplate/Autoload/parser.gd"
+}, {
+"base": "Reference",
 "class": "ResourceAsyncLoader",
 "language": "GDScript",
 "path": "res://addons/GameTemplate/Utility/ResourceAsyncLoader.gd"
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://addons/GameTemplate/Utility/SaveSettings.gd"
 } ]
 _global_script_class_icons={
+"GodotEnv_Parser": "",
 "ResourceAsyncLoader": "",
 "SaveSettings": ""
 }
@@ -36,6 +42,9 @@ default_bus_layout="res://addons/GameTemplate/Assets/Audio_bus_layout.tres"
 
 [autoload]
 
+GlobalTimer="*res://addons/GameTemplate/Autoload/GlobalTimer.gd"
+Env="*res://addons/GameTemplate/Autoload/env.gd"
+SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
 SettingsAudio="*res://addons/GameTemplate/Autoload/SettingsAudio.gd"
 SettingsControls="*res://addons/GameTemplate/Autoload/SettingsControls.gd"
 SettingsLanguage="*res://addons/GameTemplate/Autoload/SettingsLanguage.gd"
@@ -51,7 +60,6 @@ MenuEvent="*res://addons/GameTemplate/Autoload/MenuEvent.gd"
 Music="*res://addons/GameTemplate/Autoload/Music.tscn"
 SfxManager="*res://addons/GameTemplate/Autoload/SfxManager.gd"
 HtmlFocus="*res://addons/GameTemplate/Autoload/HtmlFocus.tscn"
-GlobalTimer="*res://addons/GameTemplate/Autoload/GlobalTimer.gd"
 
 [debug]
 
@@ -72,7 +80,15 @@ window/stretch/aspect="keep_height"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "GameTemplate" )
+enabled=PoolStringArray( "res://addons/GameTemplate/plugin.cfg", "res://addons/silent_wolf/plugin.cfg" )
+
+[global]
+
+theme=false
+
+[gui]
+
+theme/custom="res://addons/GameTemplate/GUI/default_theme.tres"
 
 [importer_defaults]
 

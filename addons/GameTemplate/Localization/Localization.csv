@@ -9,6 +9,11 @@ NEW_GAME,New game,Nuevo juego
 CONTINUE,Continue,Continuar
 RESUME,Resume,Reanudar
 RESTART,Restart,Reiniciar
+LEADERBOARD,Leaderboard,Clasificación
+LOGIN,Login,Ingresar
+LOGOUT,Log out,Cerrar Sesion
+REGISTER,Register,Registrarse
+WELCOME,Welcome,Bienvenid@
 OPTIONS,Options,Opciones
 CREDITS,Credits,Créditos
 GAME,Game,Juego
@@ -49,4 +54,10 @@ HISTORY,History,Historia
 TESTING,Testing,Testeo
 SPONSOR,Sponsor,Sponsor
 REVIEW,Review,Revisión
-
+USERNAME,Username,Usuario
+PASSWORD,Password,Contraseña
+CONFIRM,Confirm,Confirmar
+SUBMIT,Submit,Enviar
+SIGN UP,Sign Up,Registrarse
+LOADING_SCORES,Loading scores…,Cargando puntuaciones…
+NO_SCORES_YET,No scores yet!,Sin puntuaciones por el momento

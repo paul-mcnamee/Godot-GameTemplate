@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://addons/GameTemplate/GUI/Buttons/DefaultButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://MainMenu/MainMenu.gd" type="Script" id=3]
+[ext_resource path="res://addons/GameTemplate/GUI/default_theme.tres" type="Theme" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0941176, 0.0784314, 0.145098, 1 )
@@ -85,7 +86,39 @@ margin_bottom = 260.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="VBoxContainer" type="VBoxContainer" parent="BG/MarginContainer/VBoxMain/HBoxContainer"]
+margin_left = 217.0
+margin_right = 288.0
+margin_bottom = 80.0
+theme = ExtResource( 4 )
+custom_constants/separation = 1
+
+[node name="PlayerName" type="Label" parent="BG/MarginContainer/VBoxMain/HBoxContainer/VBoxContainer"]
+margin_right = 71.0
+margin_bottom = 18.0
+
+[node name="Login" parent="BG/MarginContainer/VBoxMain/HBoxContainer/VBoxContainer" groups=["MainMenu"] instance=ExtResource( 1 )]
+margin_top = 19.0
+margin_right = 71.0
+margin_bottom = 38.0
+text = "Login"
+
+[node name="Register" parent="BG/MarginContainer/VBoxMain/HBoxContainer/VBoxContainer" groups=["MainMenu"] instance=ExtResource( 1 )]
+margin_top = 39.0
+margin_right = 71.0
+margin_bottom = 58.0
+text = "Register"
+
+[node name="Leaderboard" parent="BG/MarginContainer/VBoxMain/HBoxContainer/VBoxContainer" groups=["MainMenu"] instance=ExtResource( 1 )]
+margin_top = 59.0
+margin_right = 71.0
+margin_bottom = 78.0
+text = "Leaderboard"
+
 [connection signal="pressed" from="BG/MarginContainer/VBoxMain/HBoxContainer/ButtonContainer/NewGame" to="." method="_on_NewGame_pressed"]
 [connection signal="pressed" from="BG/MarginContainer/VBoxMain/HBoxContainer/ButtonContainer/Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="BG/MarginContainer/VBoxMain/HBoxContainer/ButtonContainer/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="pressed" from="BG/MarginContainer/VBoxMain/HBoxContainer/ButtonContainer/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="BG/MarginContainer/VBoxMain/HBoxContainer/VBoxContainer/Login" to="." method="_on_Login_pressed"]
+[connection signal="pressed" from="BG/MarginContainer/VBoxMain/HBoxContainer/VBoxContainer/Register" to="." method="_on_Register_pressed"]
+[connection signal="pressed" from="BG/MarginContainer/VBoxMain/HBoxContainer/VBoxContainer/Leaderboard" to="." method="_on_Leaderboard_pressed"]

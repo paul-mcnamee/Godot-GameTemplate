@@ -4,14 +4,14 @@ var timer
 
 
 func _ready():
-	$CanvasLayer/AddButton.connect("pressed", self, "add_timeout")
+	$CanvasLayer/CreateButton.connect("pressed", self, "create_timeout")
 	$CanvasLayer/StartButton.connect("pressed", self, "start_timeout")
 	$CanvasLayer/StopButton.connect("pressed", self, "stop_timeout")
 	$CanvasLayer/DeleteButton.connect("pressed", self, "delete_timeout")
 
 
-func add_timeout():
-	timer = GlobalTimer.add_timeout(self, "print_text", 
+func create_timeout():
+	timer = GlobalTimer.create_timeout(self, "print_text", 
 		$CanvasLayer/WhiteBack/TimeInput.value, 
 		$CanvasLayer/WhiteBack/AutoStartInput.pressed, 
 		$CanvasLayer/WhiteBack/OneshotInput.pressed)

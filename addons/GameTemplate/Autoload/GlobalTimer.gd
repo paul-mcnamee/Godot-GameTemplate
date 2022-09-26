@@ -10,14 +10,15 @@ extends Node2D
 # oneshot: true for only one timeout triggered
 #
 # Returns a reference to the timer
-func add_timeout(node : Node, function : String, timeout : int, autostart : bool, oneshot : bool)->Timer:
+func create_timeout(node : Node, function : String, timeout : float, 
+					autostart : bool = true , oneshot : bool = true)->Timer:
 	var timer = null
 	if node == null:
-		print_debug("GlobalTimer: add_timeout() called with empty node")
+		print_debug("GlobalTimer: create_timeout() called with empty node")
 	elif not node.has_method(function):
-		print_debug("GlobalTimer: add_timeout() called with wrong function's name")
+		print_debug("GlobalTimer: create_timeout() called with wrong function's name")
 	elif timeout <= 0:
-		print_debug("GlobalTimer: add_timeout() called with negative timeout")
+		print_debug("GlobalTimer: create_timeout() called with negative timeout")
 	else:
 		timer = Timer.new()
 		timer.set_one_shot(oneshot)
@@ -30,7 +31,7 @@ func add_timeout(node : Node, function : String, timeout : int, autostart : bool
 
 # Stops a timeout
 #
-# timer: timer's reference returned from add_timeout()
+# timer: timer's reference returned from create_timeout()
 func stop_timeout(timer : Timer)->void:
 	if timer == null:
 		print_debug("GlobalTimer: stop_timeout() called with empty timer")
@@ -40,7 +41,7 @@ func stop_timeout(timer : Timer)->void:
 
 # Starts a timeout
 #
-# timer: timer's reference returned from add_timeout()
+# timer: timer's reference returned from create_timeout()
 func start_timeout(timer : Timer)->void:
 	if timer == null:
 		print_debug("GlobalTimer: start_timeout() called with empty timer")
@@ -50,7 +51,7 @@ func start_timeout(timer : Timer)->void:
 
 # Deletes a timeout
 #
-# timer: timer's reference returned from add_timeout()
+# timer: timer's reference returned from create_timeout()
 func delete_timeout(timer : Timer)->void:
 	if timer == null:
 		print_debug("GlobalTimer: delete_timeout() called with empty timer")

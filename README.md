@@ -38,7 +38,7 @@ Template made for [Godot Wild Jam](https://godotwildjam.com/)
 
 - Game - convenient game signals, scene changing, scene restarting, game exit.
 - ScreenFade - scene transitioning layer. As a template, it's just Fade-to-Black ColorRect but it's easy to add fading shader to it.
-  PauseMenu - This is a menu that appears while in-game and pauses the game, allowing to (Resume, Options, Main Menu, Exit).
+- PauseMenu - This is a menu that appears while in-game and pauses the game, allowing to (Resume, Options, Main Menu, Exit).
 - Options - GUI for changing resolution (Fullscreen, Borderless, scaling), Audio faders (Master, Music, SFX) and Controls section for Action bindings.
 - Settings - delegates order of other Settings singletons \_ready.
 - SettingsSaveLoad - Manages save/load settings. Easily expandable for other parameters and comes with 2x versions Resource and JSON saving.

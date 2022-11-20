@@ -1,5 +1,9 @@
 extends Node
 
+#TODO: This could probably be refactored to not need to add code each time another menu item needs to be added
+#		my ideal implementation would just to have a menu be a node and then implement a script that adds the signal and input processing
+#		if necessary there could be a menu manager which holds a stack of menu pages
+
 signal Options
 signal Controls
 signal Languages

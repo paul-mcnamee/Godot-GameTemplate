@@ -12,7 +12,7 @@ var MainMenu: = 'res://MainMenu/MainMenu.tscn'		# MainMenu scene when in levels
 
 func _ready()->void:
 	MenuEvent.Paused = false
-	
+
 	#Localization
 	SettingsLanguage.connect("ReTranslate", self, "retranslate")
 	resume.connect("pressed", self, "_on_Resume_pressed")
@@ -21,7 +21,7 @@ func _ready()->void:
 	mainmenu.connect("pressed", self, "_on_MainMenu_pressed")
 	exit.connect("pressed", self, "_on_Exit_pressed")
 	retranslate()
-	
+
 
 func show_pause_menu(value:bool)->void:
 	if !can_show:

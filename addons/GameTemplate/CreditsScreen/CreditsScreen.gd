@@ -14,7 +14,7 @@ func _ready():
 	for credit in config.get_section_keys("credits"):
 		cant_lines += 1
 		$CanvasLayer/Label.text += str(tr(credit), " ", tr("BY"), " ", config.get_value("credits", credit), "\n")
-	
+
 	# Workaround for not exceding the screen
 	if cant_lines > 6:
 		$CanvasLayer/Label.get_font("font").size -= cant_lines - 6

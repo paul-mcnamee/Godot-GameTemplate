@@ -362,6 +362,7 @@ default_bus_layout="res://addons/GameTemplate/Assets/Audio_bus_layout.tres"
 
 GlobalTimer="*res://addons/GameTemplate/Autoload/GlobalTimer.gd"
 Env="*res://addons/GameTemplate/Autoload/env.gd"
+GLoot="*res://addons/gloot/gloot_autoload.gd"
 SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
 SettingsAudio="*res://addons/GameTemplate/Autoload/SettingsAudio.gd"
 SettingsControls="*res://addons/GameTemplate/Autoload/SettingsControls.gd"

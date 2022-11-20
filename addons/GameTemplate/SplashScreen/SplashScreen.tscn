@@ -6,7 +6,7 @@
 [node name="SplashScreen" type="Node2D"]
 script = ExtResource( 3 )
 Next_Scene = "res://MainMenu/MainMenu.tscn"
-Duration = 2
+Duration_Seconds = 5.0
 
 [node name="Logo" type="TextureRect" parent="."]
 margin_left = 110.0

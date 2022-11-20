@@ -20,6 +20,19 @@ func _ready()->void:
 	connect("Exit",			self, "on_Exit")
 	connect("ChangeScene",	self, "on_ChangeScene")
 	connect("Restart", 		self, "restart_scene")
+	#Silent Wolf configuration
+	SilentWolf.configure({
+				"api_key": Env.get("SILENTWOLF_API_KEY"),
+				"game_id": Env.get("SILENTWOLF_GAME_ID"),
+				"game_version": "1.0",
+				"log_level": 0
+				})
+	SilentWolf.configure_auth({
+				"redirect_to_scene": "res://MainMenu/MainMenu.tscn",
+				"login_scene": "res://addons/silent_wolf/Auth/Login.tscn",
+				"session_duration_seconds": 0,
+				"saved_session_expiration_days": 30
+				})
 
 func on_ChangeScene(scene)->void:
 	if ScreenFade.state != ScreenFade.IDLE:
@@ -30,7 +43,7 @@ func on_ChangeScene(scene)->void:
 	else:
 		NextScene = loader.load_start( [scene] )[0]
 	if NextScene == null:
-		print(' Game.gd 36 - Loaded.resource is null')
+		print_debug(' Game.gd - Loaded.resource is null')
 		return
 	if ScreenFade.state != ScreenFade.BLACK:
 		yield(ScreenFade, "fade_complete")

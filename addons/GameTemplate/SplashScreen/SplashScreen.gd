@@ -1,12 +1,12 @@
 extends Node2D
 
 export (String, FILE, "*.tscn") var Next_Scene: String
-export var Duration : float
+export var Duration_Seconds : float
 
 var timer
 
 func _ready():
-	timer = GlobalTimer.create_timeout(self, "finish", Duration, true, true)
+	timer = GlobalTimer.create_timeout(self, "finish", Duration_Seconds, true, true)
 
 
 func finish():

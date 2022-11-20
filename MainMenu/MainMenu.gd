@@ -11,7 +11,7 @@ func _ready()->void:
 	#Godot doesn't have buttons auto grab_focus when noone has focus
 	get_tree().get_nodes_in_group("MainMenu")[0].grab_focus()
 	MenuEvent.connect("Options", self, "on_options")
-	
+
 	if OS.get_name() == "HTML5":
 		$"BG/MarginContainer/VBoxMain/HBoxContainer/ButtonContainer/Exit".visible = false
 	#Localization
@@ -26,7 +26,7 @@ func _ready()->void:
 		LoginButton.set_text(tr("LOGIN"))
 		RegisterButton.set_disabled(false)
 		playerName.set_text("")
-	
+
 
 func on_options(value:bool)->void:
 	if !value && !MenuEvent.Paused:
@@ -57,7 +57,7 @@ func _on_Leaderboard_pressed():
 
 
 func _on_Login_pressed():
-	
+
 	if SilentWolf.Auth.logged_in_player != null:
 		SilentWolf.Auth.logout_player()
 		Game.emit_signal("ChangeScene", "res://MainMenu/MainMenu.tscn")

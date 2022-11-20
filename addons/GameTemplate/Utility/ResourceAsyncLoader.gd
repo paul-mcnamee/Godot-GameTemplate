@@ -25,7 +25,7 @@ func load_start(resource_list:Array)->Array:
 
 func threaded_load(resources_in:Array)->void:
 	var resources_out: = []
-	
+
 	for res_in in resources_in:
 		mutex.lock()
 		resources_out.append(load(res_in))

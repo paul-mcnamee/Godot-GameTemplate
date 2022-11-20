@@ -7,7 +7,7 @@ onready var nodes = {
 	# Theme
 	'themes': $VBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer/HBoxContainer/ThemePicker,
 	'canvas_layer' : $VBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer/HBoxContainer3/CanvasLayer,
-	
+
 	# Dialog
 	'text_event_audio_default_bus' : $VBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2/TextAudioDefaultBus/AudioBus,
 
@@ -18,16 +18,16 @@ onready var nodes = {
 	'choice_hotkey_2': $'VBoxContainer/HBoxContainer3/VBoxContainer2/VBoxContainer/HBoxContainer5/Choice2Hotkey',
 	'choice_hotkey_3': $'VBoxContainer/HBoxContainer3/VBoxContainer2/VBoxContainer/HBoxContainer6/Choice3Hotkey',
 	'choice_hotkey_4': $'VBoxContainer/HBoxContainer3/VBoxContainer2/VBoxContainer/HBoxContainer7/Choice4Hotkey',
-	
+
 	# Custom Events
-	'new_custom_event_open':$VBoxContainer/HBoxContainer3/VBoxContainer2/CustomEvents/HBoxContainer/NewCustomEvent, 
-	'new_custom_event_section': $VBoxContainer/HBoxContainer3/VBoxContainer2/CustomEvents/CreateCustomEventSection, 
+	'new_custom_event_open':$VBoxContainer/HBoxContainer3/VBoxContainer2/CustomEvents/HBoxContainer/NewCustomEvent,
+	'new_custom_event_section': $VBoxContainer/HBoxContainer3/VBoxContainer2/CustomEvents/CreateCustomEventSection,
 	'new_custom_event_name': $VBoxContainer/HBoxContainer3/VBoxContainer2/CustomEvents/CreateCustomEventSection/CeName,
 	'new_custom_event_directory': $VBoxContainer/HBoxContainer3/VBoxContainer2/CustomEvents/CreateCustomEventSection/CeDirectory,
 	'new_custom_event_id': $VBoxContainer/HBoxContainer3/VBoxContainer2/CustomEvents/CreateCustomEventSection/CeEventId,
 	'new_custom_event_create':$VBoxContainer/HBoxContainer3/VBoxContainer2/CustomEvents/CreateCustomEventSection/HBoxContainer/CreateCustomEvent,
 	'new_custom_event_cancel':$VBoxContainer/HBoxContainer3/VBoxContainer2/CustomEvents/CreateCustomEventSection/HBoxContainer/CancelCustomEvent,
-	
+
 	# History Settings
 	'text_arrivals': $VBoxContainer/HBoxContainer3/VBoxContainer2/HistorySettings/GridContainer/LogBox/LineEdit,
 	'text_exits': $VBoxContainer/HBoxContainer3/VBoxContainer2/HistorySettings/GridContainer/LogBox2/LineEdit,
@@ -69,7 +69,7 @@ var HISTORY_KEYS := [
 ]
 
 var ANIMATION_KEYS := [
-	'default_join_animation', 
+	'default_join_animation',
 	'default_join_animation_length',
 	'default_leave_animation',
 	'default_leave_animation_length'
@@ -78,9 +78,9 @@ var ANIMATION_KEYS := [
 func _ready():
 	editor_reference = find_parent('EditorView')
 	update_bus_selector()
-	
+
 	update_data()
-	
+
 	# Themes
 	nodes['themes'].connect('about_to_show', self, 'build_PickerMenu')
 	nodes['themes'].custom_icon = load("res://addons/dialogic/Images/Resources/theme.svg")
@@ -91,22 +91,22 @@ func _ready():
 	nodes['delay_after_options'].connect('text_changed', self, '_on_delay_options_text_changed')
 	nodes['default_action_key'].connect('pressed', self, '_on_default_action_key_presssed')
 	nodes['default_action_key'].connect('item_selected', self, '_on_default_action_key_item_selected')
-	
+
 	# Connect hotkey settings 1-4
 	for i in range(1, 5):
 		var key = str('choice_hotkey_', i)
 		nodes[key].connect('pressed', self, '_on_hotkey_action_key_presssed', [key])
 		nodes[key].connect('item_selected', self, '_on_default_action_key_item_selected', [key])
-	
+
 	AudioServer.connect("bus_layout_changed", self, "update_bus_selector")
 	nodes['text_event_audio_default_bus'].connect('item_selected', self, '_on_text_audio_default_bus_item_selected')
-	
+
 	## History timeline connections
 	nodes['history_button_position'].connect('item_selected', self, '_on_button_history_button_position_selected')
 	nodes['history_character_delimiter'].connect('text_changed', self, '_on_text_changed', ['history', 'history_character_delimiter'])
 	nodes['text_arrivals'].connect('text_changed', self, '_on_text_changed', ['history', 'text_arrivals'])
 	nodes['text_exits'].connect('text_changed', self, '_on_text_changed', ['history', 'text_exits'])
-	
+
 	for button in ['history_button_position']:
 		var button_positions_popup = nodes[button].get_popup()
 		button_positions_popup.clear()
@@ -130,12 +130,12 @@ func _ready():
 			get_icon("ControlAlignBottomCenter", "EditorIcons"), "Bottom Center", 7)
 		button_positions_popup.add_icon_item(
 			get_icon("ControlAlignBottomRight", "EditorIcons"), "Bottom Right", 8)
-	
+
 	nodes['history_screen_margin_x'].connect("value_changed", self, '_spinbox_val_changed', ['history_screen_margin_x'])
 	nodes['history_screen_margin_y'].connect("value_changed", self, '_spinbox_val_changed', ['history_screen_margin_y'])
 	nodes['history_container_margin_x'].connect("value_changed", self, '_spinbox_val_changed', ['history_container_margin_x'])
 	nodes['history_container_margin_y'].connect("value_changed", self, '_spinbox_val_changed', ['history_container_margin_y'])
-	
+
 	## The custom event section
 	nodes['new_custom_event_open'].connect("pressed", self, "new_custom_event_pressed")
 	nodes['new_custom_event_section'].hide()
@@ -146,7 +146,7 @@ func _ready():
 	$VBoxContainer/HBoxContainer3/VBoxContainer2/CustomEvents/HBoxContainer/Message.set('custom_colors/font_color', get_color("error_color", "Editor"))
 	$VBoxContainer/HBoxContainer3/VBoxContainer2/CustomEvents/HBoxContainer/CustomEventsDocs.icon = get_icon("HelpSearch", "EditorIcons")
 	$VBoxContainer/HBoxContainer3/VBoxContainer2/CustomEvents/HBoxContainer/CustomEventsDocs.connect("pressed", self, 'open_custom_event_docs')
-	
+
 	## The Animation Section
 	nodes['default_join_animation'].connect('about_to_show', self, '_on_AnimationDefault_about_to_show', [nodes['default_join_animation'], '_in'])
 	nodes['default_leave_animation'].connect('about_to_show', self, '_on_AnimationDefault_about_to_show', [nodes['default_leave_animation'], 'out'])
@@ -194,11 +194,11 @@ func refresh_themes(settings: ConfigFile):
 		nodes['themes'].set_item_metadata(index, {'file': theme['file']})
 		theme_indexes[theme['file']] = index
 		index += 1
-	
+
 	# Only one item added, then save as default
-	if index == 1: 
+	if index == 1:
 		set_value('theme', 'default', theme_list[0]['file'])
-	
+
 	# More than one theme? Select which the default one is
 	if index > 1:
 		if settings.has_section_key('theme', 'default'):
@@ -236,7 +236,7 @@ func _on_default_action_key_presssed(settingName = 'default_action_key') -> void
 	for prop in ProjectSettings.get_property_list():
 		if prop.name.begins_with('input/'):
 			nodes[settingName].add_item(prop.name.trim_prefix('input/'))
-			
+
 
 func _on_hotkey_action_key_presssed(settingName = 'choice_hotkey_1') -> void:
 	var settings = DialogicResources.get_settings_config()
@@ -246,7 +246,7 @@ func _on_hotkey_action_key_presssed(settingName = 'choice_hotkey_1') -> void:
 	for prop in ProjectSettings.get_property_list():
 		if prop.name.begins_with('input/'):
 			nodes[settingName].add_item(prop.name.trim_prefix('input/'))
-	
+
 
 
 func _on_default_action_key_item_selected(index, settingName = 'default_action_key') -> void:
@@ -309,14 +309,14 @@ func new_custom_event_pressed():
 	nodes['new_custom_event_name'].text = ''
 	nodes['new_custom_event_directory'].text = ''
 	nodes['new_custom_event_id'].text = ''
-	
+
 	nodes['new_custom_event_create'].disabled = true
 	$VBoxContainer/HBoxContainer3/VBoxContainer2/CustomEvents/HBoxContainer/Message.text = ""
 
 
 func custom_event_name_entered(text:String):
 	nodes['new_custom_event_directory'].text = text
-	
+
 	nodes['new_custom_event_create'].disabled = nodes['new_custom_event_id'].text != ''
 	$VBoxContainer/HBoxContainer3/VBoxContainer2/CustomEvents/HBoxContainer/Message.text = ""
 
@@ -346,7 +346,7 @@ func create_custom_event():
 		print('[D] No id specified!')
 		$VBoxContainer/HBoxContainer3/VBoxContainer2/CustomEvents/HBoxContainer/Message.text = "Enter an id!"
 		return
-	
+
 	# create new directory
 	var dir_name = 'res://dialogic/custom-events/'+nodes['new_custom_event_directory'].text
 	var dir = Directory.new()
@@ -355,11 +355,11 @@ func create_custom_event():
 		print("[D] Custom Events folder '"+nodes['new_custom_event_directory'].text+"' already exists!")
 		return
 	dir.make_dir(dir_name)
-	
+
 	# copy all necessary files
 	for file in ['EventBlock.tscn', 'Stylebox.tres', 'EventPart_Example.gd', 'EventPart_Example.tscn', 'event_yourname_000.gd']:
 		dir.copy("res://addons/dialogic/Example Assets/CustomEvents/"+file, dir_name+"/"+file)
-	
+
 	# Updating the script location of the example
 	var scene = load(dir_name+"/EventPart_Example.tscn")
 	var scene_instance = scene.instance()
@@ -367,10 +367,10 @@ func create_custom_event():
 	var packed_scene = PackedScene.new()
 	packed_scene.pack(scene_instance)
 	ResourceSaver.save(dir_name+"/EventPart_Example.tscn", packed_scene)
-	
+
 	# rename the event handler script
 	dir.rename(dir_name+'/event_yourname_000.gd', dir_name+'/event_'+nodes['new_custom_event_id'].text+'.gd')
-	
+
 	# edit the EventBlock scene
 	var event_block_scene = load(dir_name+'/EventBlock.tscn').instance(PackedScene.GEN_EDIT_STATE_INSTANCE)
 	event_block_scene.event_name = nodes['new_custom_event_name'].text
@@ -379,10 +379,10 @@ func create_custom_event():
 	var packed = PackedScene.new()
 	packed.pack(event_block_scene)
 	ResourceSaver.save(dir_name+'/EventBlock.tscn', packed)
-	
+
 	# close the section
 	nodes['new_custom_event_section'].hide()
-	
+
 	# force godot to show the folder
 	editor_reference.editor_interface.get_resource_filesystem().scan()
 	$VBoxContainer/HBoxContainer3/VBoxContainer2/CustomEvents/HBoxContainer/Message.text = ""
@@ -431,17 +431,17 @@ func build_PickerMenuFolder(menu:PopupMenu, folder_structure:Dictionary, current
 		menu.add_child(submenu)
 		nodes['themes'].update_submenu_style(submenu)
 		index += 1
-	
+
 	var files_info = DialogicUtil.get_theme_dict()
 	for file in folder_structure['files']:
 		menu.add_item(files_info[file]['name'])
 		menu.set_item_icon(index, editor_reference.get_node("MainPanel/MasterTreeContainer/MasterTree").theme_icon)
 		menu.set_item_metadata(index, {'file':file})
 		index += 1
-	
+
 	if not menu.is_connected("index_pressed", self, "_on_ThemePicker_index_pressed"):
 		menu.connect("index_pressed", self, '_on_ThemePicker_index_pressed', [menu])
-	
+
 	return current_folder_name
 
 func _on_ThemePicker_index_pressed(index, menu):

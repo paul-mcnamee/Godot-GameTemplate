@@ -2,7 +2,6 @@
 
 [ext_resource path="res://addons/GameTemplate/Assets/Fonts/pixellocale_16.tres" type="DynamicFont" id=1]
 
-
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node
 
@@ -42,10 +41,10 @@ anchor_bottom = 1.0
 [node name="Button" type="Button" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
 custom_styles/focus = SubResource( 4 )
 custom_styles/disabled = SubResource( 5 )
 custom_styles/normal = SubResource( 6 )
-custom_fonts/font = ExtResource( 1 )
 text = "Click me"

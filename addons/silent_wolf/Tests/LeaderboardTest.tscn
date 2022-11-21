@@ -1,8 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://addons/GameTemplate/GUI/default_theme.tres" type="Theme" id=1]
+[ext_resource path="res://addons/GameTemplate/GUI/Themes/default_theme.tres" type="Theme" id=1]
 [ext_resource path="res://addons/silent_wolf/Tests/LeaderboardTest.gd" type="Script" id=2]
-[ext_resource path="res://Leaderboard/Leaderboard.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/GameTemplate/GUI/Menus/Leaderboard/Leaderboard.tscn" type="PackedScene" id=3]
+
 
 [node name="Node" type="Control"]
 margin_right = -2426.88

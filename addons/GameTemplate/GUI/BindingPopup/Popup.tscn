@@ -1,18 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://addons/GameTemplate/GUI/BindingPopup/Popup.gd" type="Script" id=1]
-[ext_resource path="res://addons/GameTemplate/Assets/Fonts/pixellocale_8.tres" type="DynamicFont" id=2]
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.0941176, 0.0784314, 0.145098, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color( 1, 1, 1, 1 )
-anti_aliasing = false
-
-[sub_resource type="StyleBoxEmpty" id=2]
 
 [node name="Popup" type="Popup"]
 size_flags_horizontal = 3
@@ -41,7 +29,6 @@ margin_top = 40.0
 margin_right = 290.0
 margin_bottom = 120.0
 size_flags_horizontal = 3
-custom_styles/panel = SubResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/Panel"]
 margin_right = 220.0
@@ -66,12 +53,10 @@ size_flags_horizontal = 3
 margin_right = 220.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
-custom_styles/panel = SubResource( 2 )
 
 [node name="Message" type="Label" parent="MarginContainer2/Panel/MarginContainer/VBoxContainer/PanelContainer"]
 margin_right = 220.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 2 )
 text = "USE_NEW_CONTROLS"
 align = 1

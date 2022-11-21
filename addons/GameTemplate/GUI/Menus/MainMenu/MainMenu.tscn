@@ -1,0 +1,120 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://addons/GameTemplate/GUI/Buttons/DefaultButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/GameTemplate/GUI/Themes/default_theme.tres" type="Theme" id=2]
+[ext_resource path="res://addons/GameTemplate/GUI/Menus/MainMenu/MainMenu.gd" type="Script" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+
+[node name="MainMenu" type="CanvasLayer"]
+layer = 0
+script = ExtResource( 3 )
+First_Level = "res://Levels/TestScene.tscn"
+
+[node name="BG" type="Panel" parent="."]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MarginContainer" type="MarginContainer" parent="BG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 16
+custom_constants/margin_top = 16
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 16
+
+[node name="VBoxMain" type="VBoxContainer" parent="BG/MarginContainer"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 304.0
+margin_bottom = 164.0
+size_flags_vertical = 3
+
+[node name="CenterLogo" type="CenterContainer" parent="BG/MarginContainer/VBoxMain"]
+margin_right = 288.0
+margin_bottom = 64.0
+
+[node name="Logo" type="TextureRect" parent="BG/MarginContainer/VBoxMain/CenterLogo"]
+margin_left = 112.0
+margin_right = 176.0
+margin_bottom = 64.0
+texture = ExtResource( 4 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BG/MarginContainer/VBoxMain"]
+margin_top = 68.0
+margin_right = 288.0
+margin_bottom = 148.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ButtonContainer" type="VBoxContainer" parent="BG/MarginContainer/VBoxMain/HBoxContainer"]
+margin_right = 51.0
+margin_bottom = 80.0
+size_flags_vertical = 3
+custom_constants/separation = 1
+
+[node name="NewGame" parent="BG/MarginContainer/VBoxMain/HBoxContainer/ButtonContainer" groups=["MainMenu"] instance=ExtResource( 1 )]
+margin_right = 51.0
+text = "New Game"
+
+[node name="Options" parent="BG/MarginContainer/VBoxMain/HBoxContainer/ButtonContainer" instance=ExtResource( 1 )]
+margin_top = 20.0
+margin_right = 51.0
+margin_bottom = 39.0
+text = "Options"
+
+[node name="Credits" parent="BG/MarginContainer/VBoxMain/HBoxContainer/ButtonContainer" instance=ExtResource( 1 )]
+margin_top = 40.0
+margin_right = 51.0
+margin_bottom = 59.0
+text = "Credits"
+
+[node name="Exit" parent="BG/MarginContainer/VBoxMain/HBoxContainer/ButtonContainer" instance=ExtResource( 1 )]
+margin_top = 60.0
+margin_right = 51.0
+margin_bottom = 79.0
+text = "Exit"
+
+[node name="RightMargin" type="Control" parent="BG/MarginContainer/VBoxMain/HBoxContainer"]
+margin_left = 55.0
+margin_right = 213.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BG/MarginContainer/VBoxMain/HBoxContainer"]
+margin_left = 217.0
+margin_right = 288.0
+margin_bottom = 80.0
+theme = ExtResource( 2 )
+custom_constants/separation = 1
+
+[node name="PlayerName" type="Label" parent="BG/MarginContainer/VBoxMain/HBoxContainer/VBoxContainer"]
+margin_right = 71.0
+margin_bottom = 18.0
+
+[node name="Login" parent="BG/MarginContainer/VBoxMain/HBoxContainer/VBoxContainer" groups=["MainMenu"] instance=ExtResource( 1 )]
+margin_top = 19.0
+margin_right = 71.0
+margin_bottom = 38.0
+text = "Login"
+
+[node name="Register" parent="BG/MarginContainer/VBoxMain/HBoxContainer/VBoxContainer" groups=["MainMenu"] instance=ExtResource( 1 )]
+margin_top = 39.0
+margin_right = 71.0
+margin_bottom = 58.0
+text = "Register"
+
+[node name="Leaderboard" parent="BG/MarginContainer/VBoxMain/HBoxContainer/VBoxContainer" groups=["MainMenu"] instance=ExtResource( 1 )]
+margin_top = 59.0
+margin_right = 71.0
+margin_bottom = 78.0
+text = "Leaderboard"
+
+[connection signal="pressed" from="BG/MarginContainer/VBoxMain/HBoxContainer/ButtonContainer/NewGame" to="." method="_on_NewGame_pressed"]
+[connection signal="pressed" from="BG/MarginContainer/VBoxMain/HBoxContainer/ButtonContainer/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="BG/MarginContainer/VBoxMain/HBoxContainer/ButtonContainer/Credits" to="." method="_on_Credits_pressed"]
+[connection signal="pressed" from="BG/MarginContainer/VBoxMain/HBoxContainer/ButtonContainer/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="BG/MarginContainer/VBoxMain/HBoxContainer/VBoxContainer/Login" to="." method="_on_Login_pressed"]
+[connection signal="pressed" from="BG/MarginContainer/VBoxMain/HBoxContainer/VBoxContainer/Register" to="." method="_on_Register_pressed"]
+[connection signal="pressed" from="BG/MarginContainer/VBoxMain/HBoxContainer/VBoxContainer/Leaderboard" to="." method="_on_Leaderboard_pressed"]

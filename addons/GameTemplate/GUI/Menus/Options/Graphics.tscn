@@ -1,0 +1,85 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/GameTemplate/GUI/Buttons/TextureButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/GameTemplate/GUI/Buttons/ToggleButton.tscn" type="PackedScene" id=2]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 50.0
+margin_right = -50.0
+margin_bottom = -50.0
+
+[node name="Resolution" type="Label" parent="."]
+margin_right = 1668.0
+margin_bottom = 23.0
+text = "Resolution"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_top = 27.0
+margin_right = 1668.0
+margin_bottom = 768.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 1668.0
+margin_bottom = 741.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 15
+
+[node name="Fullscreen" type="CheckButton" parent="HBoxContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_right = 1668.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+text = "Fullscreen  "
+
+[node name="Borderless" type="CheckButton" parent="HBoxContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 38.0
+margin_right = 1668.0
+margin_bottom = 61.0
+size_flags_horizontal = 3
+text = "Borderless"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 76.0
+margin_right = 1668.0
+margin_bottom = 126.0
+size_flags_horizontal = 3
+
+[node name="ScaleDown" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 1 )]
+margin_right = 50.0
+margin_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 50, 50 )
+focus_neighbour_right = NodePath("../ScaleUp")
+size_flags_vertical = 3
+
+[node name="Scale" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 54.0
+margin_right = 1614.0
+margin_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Scale"
+align = 1
+valign = 1
+
+[node name="ScaleUp" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 1 )]
+margin_left = 1618.0
+margin_right = 1668.0
+margin_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 50, 50 )
+focus_neighbour_left = NodePath("../ScaleDown")
+focus_neighbour_bottom = NodePath("../../../../../../../MarginContainer/VBoxContainer/Back")
+size_flags_vertical = 3

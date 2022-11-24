@@ -3,7 +3,7 @@ extends VBoxContainer
 signal Language_choosen
 
 onready var button:PackedScene = preload("res://addons/GameTemplate/GUI/Buttons/DefaultButton.tscn")
-onready var button_parent:HBoxContainer = $"Panel/VBoxContainer/MarginContainer/HBoxContainer"
+onready var button_parent:HBoxContainer = $LanguageContainer
 
 func _ready()->void:
 	MenuEvent.connect("Languages", self, "on_show_languages")
@@ -34,4 +34,5 @@ func on_show_languages(value:bool)->void:
 
 #Localization
 func retranslate()->void:
-	find_node("Back").text = tr("BACK")
+	pass
+#	find_node("Back").text = tr("BACK")

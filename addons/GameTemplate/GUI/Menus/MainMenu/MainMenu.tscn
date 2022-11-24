@@ -26,89 +26,90 @@ custom_constants/margin_bottom = 16
 [node name="VBoxMain" type="VBoxContainer" parent="BG/MarginContainer"]
 margin_left = 16.0
 margin_top = 16.0
-margin_right = 304.0
-margin_bottom = 164.0
+margin_right = 1904.0
+margin_bottom = 1064.0
 size_flags_vertical = 3
 
 [node name="CenterLogo" type="CenterContainer" parent="BG/MarginContainer/VBoxMain"]
-margin_right = 288.0
+margin_right = 1888.0
 margin_bottom = 64.0
 
 [node name="Logo" type="TextureRect" parent="BG/MarginContainer/VBoxMain/CenterLogo"]
-margin_left = 112.0
-margin_right = 176.0
+margin_left = 912.0
+margin_right = 976.0
 margin_bottom = 64.0
 texture = ExtResource( 4 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="BG/MarginContainer/VBoxMain"]
 margin_top = 68.0
-margin_right = 288.0
-margin_bottom = 148.0
+margin_right = 1888.0
+margin_bottom = 1048.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ButtonContainer" type="VBoxContainer" parent="BG/MarginContainer/VBoxMain/HBoxContainer"]
-margin_right = 51.0
-margin_bottom = 80.0
+margin_right = 84.0
+margin_bottom = 980.0
 size_flags_vertical = 3
 custom_constants/separation = 1
 
 [node name="NewGame" parent="BG/MarginContainer/VBoxMain/HBoxContainer/ButtonContainer" groups=["MainMenu"] instance=ExtResource( 1 )]
-margin_right = 51.0
+margin_right = 84.0
+margin_bottom = 25.0
 text = "New Game"
 
 [node name="Options" parent="BG/MarginContainer/VBoxMain/HBoxContainer/ButtonContainer" instance=ExtResource( 1 )]
-margin_top = 20.0
-margin_right = 51.0
-margin_bottom = 39.0
+margin_top = 26.0
+margin_right = 84.0
+margin_bottom = 51.0
 text = "Options"
 
 [node name="Credits" parent="BG/MarginContainer/VBoxMain/HBoxContainer/ButtonContainer" instance=ExtResource( 1 )]
-margin_top = 40.0
-margin_right = 51.0
-margin_bottom = 59.0
+margin_top = 52.0
+margin_right = 84.0
+margin_bottom = 77.0
 text = "Credits"
 
 [node name="Exit" parent="BG/MarginContainer/VBoxMain/HBoxContainer/ButtonContainer" instance=ExtResource( 1 )]
-margin_top = 60.0
-margin_right = 51.0
-margin_bottom = 79.0
+margin_top = 78.0
+margin_right = 84.0
+margin_bottom = 103.0
 text = "Exit"
 
 [node name="RightMargin" type="Control" parent="BG/MarginContainer/VBoxMain/HBoxContainer"]
-margin_left = 55.0
-margin_right = 213.0
-margin_bottom = 80.0
+margin_left = 88.0
+margin_right = 1815.0
+margin_bottom = 980.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BG/MarginContainer/VBoxMain/HBoxContainer"]
-margin_left = 217.0
-margin_right = 288.0
-margin_bottom = 80.0
+margin_left = 1819.0
+margin_right = 1888.0
+margin_bottom = 980.0
 theme = ExtResource( 2 )
 custom_constants/separation = 1
 
 [node name="PlayerName" type="Label" parent="BG/MarginContainer/VBoxMain/HBoxContainer/VBoxContainer"]
-margin_right = 71.0
+margin_right = 69.0
 margin_bottom = 18.0
 
 [node name="Login" parent="BG/MarginContainer/VBoxMain/HBoxContainer/VBoxContainer" groups=["MainMenu"] instance=ExtResource( 1 )]
 margin_top = 19.0
-margin_right = 71.0
-margin_bottom = 38.0
+margin_right = 69.0
+margin_bottom = 39.0
 text = "Login"
 
 [node name="Register" parent="BG/MarginContainer/VBoxMain/HBoxContainer/VBoxContainer" groups=["MainMenu"] instance=ExtResource( 1 )]
-margin_top = 39.0
-margin_right = 71.0
-margin_bottom = 58.0
+margin_top = 40.0
+margin_right = 69.0
+margin_bottom = 60.0
 text = "Register"
 
 [node name="Leaderboard" parent="BG/MarginContainer/VBoxMain/HBoxContainer/VBoxContainer" groups=["MainMenu"] instance=ExtResource( 1 )]
-margin_top = 59.0
-margin_right = 71.0
-margin_bottom = 78.0
+margin_top = 61.0
+margin_right = 69.0
+margin_bottom = 81.0
 text = "Leaderboard"
 
 [connection signal="pressed" from="BG/MarginContainer/VBoxMain/HBoxContainer/ButtonContainer/NewGame" to="." method="_on_NewGame_pressed"]

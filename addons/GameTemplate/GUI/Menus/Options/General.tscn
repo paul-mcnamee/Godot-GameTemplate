@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://addons/GameTemplate/GUI/Buttons/DefaultButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/GameTemplate/GUI/Menus/Options/Languages.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://addons/GameTemplate/GUI/Menus/Options/General.gd" type="Script" id=4]
 [ext_resource path="res://addons/GameTemplate/GUI/Menus/Options/Graphics.tscn" type="PackedScene" id=5]
 [ext_resource path="res://addons/GameTemplate/GUI/Menus/Options/Sounds.tscn" type="PackedScene" id=6]
+[ext_resource path="res://addons/GameTemplate/GUI/Menus/Options/Controls.tscn" type="PackedScene" id=7]
 [ext_resource path="res://addons/GameTemplate/GUI/Menus/test2.tscn" type="PackedScene" id=8]
 
 [node name="CanvasLayer" type="CanvasLayer"]
@@ -43,7 +44,7 @@ margin_bottom = 895.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Tabs" type="Tabs" parent="Panel/General/HBoxContainer"]
+[node name="Sounds" type="Tabs" parent="Panel/General/HBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1.0
@@ -51,7 +52,7 @@ margin_top = 26.0
 margin_right = -1.0
 margin_bottom = -1.0
 
-[node name="VBoxContainer" parent="Panel/General/HBoxContainer/Tabs" instance=ExtResource( 6 )]
+[node name="VBoxContainer" parent="Panel/General/HBoxContainer/Sounds" instance=ExtResource( 6 )]
 
 [node name="Graphics" type="Tabs" parent="Panel/General/HBoxContainer"]
 visible = false
@@ -65,6 +66,19 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="VBoxContainer" parent="Panel/General/HBoxContainer/Graphics" instance=ExtResource( 5 )]
+
+[node name="Keybinds" type="Tabs" parent="Panel/General/HBoxContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 26.0
+margin_right = -1.0
+margin_bottom = -1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Keybinds" parent="Panel/General/HBoxContainer/Keybinds" instance=ExtResource( 7 )]
 
 [node name="Language" type="Tabs" parent="Panel/General/HBoxContainer"]
 visible = false

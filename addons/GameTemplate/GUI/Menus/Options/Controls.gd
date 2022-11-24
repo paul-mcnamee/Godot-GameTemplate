@@ -48,10 +48,12 @@ func new_bind(Action, event)->void: #Adding bound InputEvent in the list
 	var eventNode:HBoxContainer = ControlBind.instance()
 	var Parent:VBoxContainer = ActionNodes[Action] #Action represented parent node
 	Parent.add_child(eventNode)
-
 	var BindName:Label = eventNode.find_node("Name")
 	var Remove:Button = eventNode.find_node("RemoveAction")
 
+	# TODO: Ideally each action should be in its own vbox container so we can separate them
+	var curColor = eventNode.modulate
+	eventNode.modulate = curColor.darkened(0.3)
 	BindName.text = get_InputEvent_name(event)
 	Remove.connect("pressed", self, "remove_control", [[Action, event, eventNode]]) #Name, event, node
 
@@ -78,7 +80,7 @@ func get_InputEvent_name(event:InputEvent)->String:
 			var value:int = round(event.axis_value)
 			if stick.ends_with('X'):
 				if value > 0:
-					text += 'Rigt'
+					text += 'Right'
 				else:
 					text += 'Left'
 			else:

@@ -53,7 +53,9 @@ func new_bind(Action, event)->void: #Adding bound InputEvent in the list
 
 	# TODO: Ideally each action should be in its own vbox container so we can separate them
 	var curColor = eventNode.modulate
-	eventNode.modulate = curColor.darkened(0.3)
+	var lightenedColor = curColor.lightened(0.9)
+	var newColor = Color(curColor.r - 0.1, curColor.g - 0.1, curColor.b - 0.1, curColor.a - 0.1)
+	eventNode.modulate = newColor
 	BindName.text = get_InputEvent_name(event)
 	Remove.connect("pressed", self, "remove_control", [[Action, event, eventNode]]) #Name, event, node
 

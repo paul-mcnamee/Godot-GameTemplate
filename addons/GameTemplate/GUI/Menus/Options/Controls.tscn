@@ -1,25 +1,19 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://addons/GameTemplate/GUI/Buttons/DefaultButton.tscn" type="PackedScene" id=1]
-[ext_resource path="res://addons/GameTemplate/GUI/Themes/default_theme.tres" type="Theme" id=2]
 [ext_resource path="res://addons/GameTemplate/GUI/Menus/Options/Controls.gd" type="Script" id=3]
-[ext_resource path="res://addons/GameTemplate/Assets/Fonts/pixellocale_8.tres" type="DynamicFont" id=4]
+[ext_resource path="res://addons/GameTemplate/Assets/Fonts/OpenSans_64.tres" type="DynamicFont" id=4]
 [ext_resource path="res://addons/GameTemplate/GUI/BindingPopup/Popup.tscn" type="PackedScene" id=5]
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.0235294, 0.0196078, 0.0352941, 1 )
-corner_detail = 1
 
 [node name="Controls" type="VBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 2 )
 custom_constants/separation = 1
 script = ExtResource( 3 )
 
 [node name="Section" type="Control" parent="."]
 margin_right = 1920.0
-margin_bottom = 1059.0
+margin_bottom = 1043.0
 size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="Section"]
@@ -36,95 +30,69 @@ custom_constants/margin_bottom = 3
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 1915.0
-margin_bottom = 1058.0
+margin_bottom = 1042.0
 size_flags_horizontal = 3
 
 [node name="ActionsSection" type="VBoxContainer" parent="Section/MarginContainer/ScrollContainer"]
 margin_right = 1910.0
-margin_bottom = 1053.0
+margin_bottom = 1037.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/separation = 0
+custom_constants/separation = 15
 
 [node name="PanelContainer" type="PanelContainer" parent="Section/MarginContainer/ScrollContainer/ActionsSection"]
+visible = false
 margin_right = 1910.0
-margin_bottom = 18.0
-custom_styles/panel = SubResource( 1 )
+margin_bottom = 108.0
 
 [node name="Actions" type="Label" parent="Section/MarginContainer/ScrollContainer/ActionsSection/PanelContainer"]
-margin_left = 934.0
-margin_right = 975.0
-margin_bottom = 18.0
+margin_left = 853.0
+margin_top = 5.0
+margin_right = 1072.0
+margin_bottom = 103.0
 size_flags_horizontal = 4
 custom_fonts/font = ExtResource( 4 )
 text = "Actions"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Section/MarginContainer/ScrollContainer/ActionsSection"]
-margin_top = 18.0
 margin_right = 1910.0
-margin_bottom = 1053.0
+margin_bottom = 1037.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 follow_focus = true
 scroll_horizontal_enabled = false
+scroll_vertical_enabled = false
 
 [node name="ActionList" type="VBoxContainer" parent="Section/MarginContainer/ScrollContainer/ActionsSection/ScrollContainer"]
 margin_right = 1910.0
-margin_bottom = 1035.0
+margin_bottom = 1037.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/separation = 0
+custom_constants/separation = 10
 
 [node name="Popup" parent="Section" groups=["KeyBinding"] instance=ExtResource( 5 )]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-margin_top = 1060.0
+margin_top = 1044.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 
 [node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 margin_right = 1920.0
-margin_bottom = 20.0
+margin_bottom = 36.0
 size_flags_horizontal = 3
-custom_constants/separation = 1
-
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
-margin_right = 383.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_constants/separation = 150
 
 [node name="Back" parent="MarginContainer/VBoxContainer" groups=["Controls"] instance=ExtResource( 1 )]
-margin_left = 384.0
-margin_right = 767.0
-margin_bottom = 20.0
+margin_right = 885.0
+margin_bottom = 36.0
 text = "Back"
 
-[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer"]
-margin_left = 768.0
-margin_right = 1151.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Default" parent="MarginContainer/VBoxContainer" instance=ExtResource( 1 )]
-margin_left = 1152.0
-margin_right = 1535.0
-margin_bottom = 20.0
-text = "Default"
-
-[node name="Control3" type="Control" parent="MarginContainer/VBoxContainer"]
-margin_left = 1536.0
+margin_left = 1035.0
 margin_right = 1920.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_bottom = 36.0
+text = "Default"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_Back_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Default" to="." method="_on_Default_pressed"]

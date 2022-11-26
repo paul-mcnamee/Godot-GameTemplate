@@ -409,7 +409,7 @@ theme=false
 [gui]
 
 theme/custom="res://addons/GameTemplate/GUI/Themes/MinimalUI.tres"
-theme/custom_font="res://addons/GameTemplate/Assets/Fonts/OpenSans.tres"
+theme/custom_font="res://addons/GameTemplate/Assets/Fonts/OpenSans_16.tres"
 
 [importer_defaults]
 

@@ -1,4 +1,6 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/GameTemplate/Assets/Fonts/OpenSans_24.tres" type="DynamicFont" id=1]
 
 [node name="Master" type="VBoxContainer"]
 anchor_right = 1.0
@@ -8,15 +10,16 @@ margin_bottom = 55.0
 
 [node name="ScaleName" type="Label" parent="."]
 margin_right = 1973.0
-margin_bottom = 23.0
+margin_bottom = 34.0
 size_flags_vertical = 1
+custom_fonts/font = ExtResource( 1 )
 text = "Master"
 align = 1
 
 [node name="HSlider" type="HSlider" parent="."]
-margin_top = 27.0
+margin_top = 38.0
 margin_right = 1973.0
-margin_bottom = 55.0
+margin_bottom = 66.0
 size_flags_horizontal = 3
 step = 10.0
 value = 50.0

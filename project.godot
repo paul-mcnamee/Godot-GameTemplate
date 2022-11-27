@@ -95,9 +95,9 @@ _global_script_classes=[ {
 "path": "res://addons/dialogic/Other/DialogicUtil.gd"
 }, {
 "base": "Reference",
-"class": "GodotEnv_Parser",
+"class": "EnvParser",
 "language": "GDScript",
-"path": "res://addons/GameTemplate/Autoload/parser.gd"
+"path": "res://addons/GameTemplate/Autoload/EnvParser.gd"
 }, {
 "base": "Reference",
 "class": "GutHookScript",
@@ -307,7 +307,7 @@ _global_script_class_icons={
 "DialogicParser": "",
 "DialogicResources": "",
 "DialogicUtil": "",
-"GodotEnv_Parser": "",
+"EnvParser": "",
 "GutHookScript": "",
 "GutTest": "",
 "HistoryRow": "",
@@ -371,6 +371,7 @@ SettingsResolution="*res://addons/GameTemplate/Autoload/SettingsResolution.gd"
 SettingsSaveLoad="*res://addons/GameTemplate/Autoload/SettingsSaveLoad.gd"
 Settings="*res://addons/GameTemplate/Autoload/Settings.gd"
 Options="*res://addons/GameTemplate/Autoload/Options.tscn"
+SilentWolfAutoLoad="*res://addons/GameTemplate/Autoload/SilentWolfAutoLoad.gd"
 Game="*res://addons/GameTemplate/Autoload/Game.gd"
 ScreenFade="*res://addons/GameTemplate/Autoload/ScreenFade.tscn"
 PauseMenu="*res://addons/GameTemplate/Autoload/PauseMenu.tscn"

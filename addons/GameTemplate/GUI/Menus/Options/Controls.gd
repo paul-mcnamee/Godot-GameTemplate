@@ -94,8 +94,6 @@ func get_InputEvent_name(event:InputEvent)->String:
 
 	return text
 
-# TODO: currently it seems like changes are not being saved when added/removed
-
 func add_control(Name)->void:
 	get_focus_owner().release_focus()
 	Pop.popup()

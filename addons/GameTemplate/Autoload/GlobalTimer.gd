@@ -3,11 +3,11 @@ extends Node2D
 
 # Creates a new timeout by creating a new Timer with the specified parameters
 #
-# node: node that will execute the timeout's function
-# function: name of the timeout's function
-# timeout: timeout's time in seconds
-# autostart: true for autosarting timer
-# oneshot: true for only one timeout triggered
+# node: 		node that will execute the timeout's function
+# function:		name of the timeout's function
+# timeout:		timeout's time in seconds
+# autostart:	true for autosarting timer
+# oneshot: 		true for only one timeout triggered
 #
 # Returns a reference to the timer
 func create_timeout(node : Node, function : String, timeout : float,

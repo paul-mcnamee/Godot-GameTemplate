@@ -11,7 +11,9 @@ var GameResolution:Vector2
 var WindowResolution:Vector2
 var ScreenResolution:Vector2
 var ScreenAspectRatio:float
-var Scale:int = 3 setget set_scale				#Default scale multiple
+
+#Default scale multiplier
+var Scale:int = 3 setget set_scale
 var MaxScale:int
 
 #RESOLUTION
@@ -32,7 +34,7 @@ func get_resolution()->void:
 	View = get_viewport()
 	ViewRect2 = View.get_visible_rect()
 	GameResolution = ViewRect2.size
-	
+
 	WindowResolution = OS.window_size
 	ScreenResolution = OS.get_screen_size(OS.current_screen)
 	ScreenAspectRatio = ScreenResolution.x/ScreenResolution.y

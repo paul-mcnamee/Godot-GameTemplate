@@ -13,6 +13,9 @@ onready var SFX_slider:HSlider = find_node("SFX").get_node("HSlider")
 onready var Master_player:AudioStreamPlayer = find_node("Master").get_node("AudioStreamPlayer")
 onready var Music_player:AudioStreamPlayer = find_node("Music").get_node("AudioStreamPlayer")
 onready var SFX_player:AudioStreamPlayer = find_node("SFX").get_node("AudioStreamPlayer")
+
+onready var _tabContainer:TabContainer = $TabContainer
+
 var beep: = preload("res://addons/GameTemplate/Assets/Sounds/TestBeep.wav")
 
 func _ready()->void:
@@ -98,10 +101,9 @@ func on_show_languages(value:bool)->void:
 	if visible:
 		get_tree().get_nodes_in_group("General")[0].grab_focus()
 
-#Localization
+#Localization - TODO: this seems really prone to failure
 func retranslate()->void:
 	find_node("Resolution").text 					= tr("RESOLUTION")
-	find_node("Volume").text 						= tr("VOLUME")
 	find_node("Fullscreen").text 					= tr("FULLSCREEN")
 	find_node("Borderless").text 					= tr("BORDERLESS")
 	find_node("Scale").text 						= tr("SCALE")
@@ -110,7 +112,6 @@ func retranslate()->void:
 	find_node("SFX").get_node("ScaleName").text 	= tr("SFX")
 	find_node("LanguagesButton").text 				= tr("LANGUAGES")
 	find_node("GameButton").text	 				= tr("GAME")
-	find_node("Controls").text 						= tr("CONTROLS")
 	find_node("Back").text 							= tr("BACK")
 
 func set_node_in_focus()->void:

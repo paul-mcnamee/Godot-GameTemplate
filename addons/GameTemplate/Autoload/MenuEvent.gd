@@ -1,7 +1,8 @@
 extends Node
 
 #TODO: This could probably be refactored to not need to add code each time another menu item needs to be added
-#		my ideal implementation would just to have a menu be a node and then implement a script that adds the signal and input processing
+#		my ideal implementation would just to have a menu be a node and then
+#		implement a script that adds the signal and input processing based on the name
 #		if necessary there could be a menu manager which holds a stack of menu pages
 
 signal Options
@@ -39,10 +40,12 @@ func set_game(value:bool)->void:
 	Game = value
 	emit_signal("Game", Game)
 
+#when paused, menu allows reading inputs
 func _ready()->void:
-	pause_mode = Node.PAUSE_MODE_PROCESS										#when pause menu allows reading inputs
+	pause_mode = Node.PAUSE_MODE_PROCESS
 
-func _input(event)->void:												#used to get back in menus
+#used to get back in menus
+func _input(event)->void:
 	if event.is_action_pressed("ui_cancel"):
 		if Languages:
 			set_languages(false)

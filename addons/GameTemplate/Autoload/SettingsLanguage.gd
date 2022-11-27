@@ -13,7 +13,9 @@ var Language_list:Array = Language_dictionary.keys()
 
 
 #Localization
-func add_translations()->void:						#TO-DO need a way to add translations to project through the plugin
+#TO-DO need a way to add translations to project through the plugin
+# may be able to leverage the translations from dialogic but that would make it a dependency
+func add_translations()->void:
 	for tran in translations:
 		TranslationServer.add_translation(tran)
 

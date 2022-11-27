@@ -15,7 +15,7 @@ func get_volumes()->void:
 	var Master:float	= db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
 	var Music:float 	= db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
 	var SFX:float 		= db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")))
-	
+
 	set_volume_master(Master)
 	set_volume_music(Music)
 	set_volume_sfx(SFX)

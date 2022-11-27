@@ -59,12 +59,14 @@ func save_settings_JSON()->void:
 	SettingsSaver.close()
 
 func load_settings_JSON()->bool:
-	if Settings.HTML5: 										#need to confirm but for now means that HTML5 won't use the saving
-		return	false
+	#need to confirm but for now means that HTML5 won't use the saving
+	if Settings.HTML5:
+		return false
 	#Json to Dictionary
 	var SettingsLoader:File = File.new()
 	if !SettingsLoader.file_exists(CONFIG_DIR + CONFIG_FILE_NAME + CONFIG_EXTENSION):
-		return  false										#We don't have a save to load
+		#nothing to load
+		return false
 	SettingsLoader.open(CONFIG_DIR + CONFIG_FILE_NAME + CONFIG_EXTENSION, File.READ)
 	var save_data = parse_json(SettingsLoader.get_line())
 	SettingsLoader.close()

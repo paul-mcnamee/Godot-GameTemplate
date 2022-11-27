@@ -1,5 +1,5 @@
 # Alternative to [TranslationServer] that works inside the editor
-# This is a modified version of AnidemDex's TranslationService 
+# This is a modified version of AnidemDex's TranslationService
 # https://github.com/AnidemDex/Godot-TranslationService
 
 tool
@@ -14,15 +14,15 @@ func _init():
 # Translates a message using translation catalogs configured in the Editor Settings.
 func translate(message:String)->String:
 	var translation
-	
+
 	translation = _get_translation(message)
-	
+
 	return translation
 
-func translations_initial_load():		
+func translations_initial_load():
 	var translations_resources = ['en', 'zh_CN', 'es', 'fr', 'de']
 	translations = {}
-	
+
 	for resource in translations_resources:
 		var t:PHashTranslation = load('res://addons/dialogic/Localization/dialogic.' + resource + '.translation')
 		if translations.has(t.locale):
@@ -39,13 +39,13 @@ func get_translations() -> Dictionary:
 func _get_translation(message)->String:
 	var returned_translation = message
 	var default_fallback = 'en'
-	
+
 	var editor_plugin = EditorPlugin.new()
 	var editor_settings = editor_plugin.get_editor_interface().get_editor_settings()
 	var locale = editor_settings.get('interface/editor/editor_language')
-	
+
 	var cases = translations.get(
-		locale, 
+		locale,
 		translations.get(default_fallback, [PHashTranslation.new()])
 		)
 	for case in cases:
@@ -55,6 +55,6 @@ func _get_translation(message)->String:
 		else:
 			# If there's no translation, returns the original string
 			returned_translation = message
-	
+
 	#print('Message: ', message, ' - locale: ', locale, ' - ', returned_translation)
 	return returned_translation

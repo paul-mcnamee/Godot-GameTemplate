@@ -77,7 +77,6 @@ func get_InputEvent_name(event:InputEvent)->String:
 			text+= stick + " "
 		else:
 			text += "Axis: " + str(event.axis) + " "
-
 		if !stick.empty():	#known
 			var value:int = round(event.axis_value)
 			if stick.ends_with('X'):
@@ -94,6 +93,8 @@ func get_InputEvent_name(event:InputEvent)->String:
 			text += str(round(event.axis_value))
 
 	return text
+
+# TODO: currently it seems like changes are not being saved when added/removed
 
 func add_control(Name)->void:
 	get_focus_owner().release_focus()

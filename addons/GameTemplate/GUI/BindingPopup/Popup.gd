@@ -21,7 +21,7 @@ func receive_focus()->void:
 
 func _input(event)->void:
 	if !event is InputEventKey && !event is InputEventJoypadButton && !event is InputEventJoypadMotion:
-		return #only continue if one of those
+		return #only continue if one of those -- TODO: this does not work for mouse buttons...
 	if !event.is_pressed():
 		return
 	NewEvent = event

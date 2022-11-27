@@ -27,7 +27,7 @@ func save_settings_resource()->void:
 	new_save.audio			= SettingsAudio.get_audio_data()
 	new_save.inputs 		= SettingsControls.get_input_data()
 	new_save.language		= SettingsLanguage.get_language_data()
-	
+
 	var dir: = Directory.new()
 	if not dir.dir_exists(CONFIG_DIR):
 		dir.make_dir_recursive(CONFIG_DIR)
@@ -36,7 +36,7 @@ func save_settings_resource()->void:
 func load_settings_resource()->bool:
 	if !ResourceLoader.exists(CONFIG_DIR + CONFIG_FILE_NAME + CONFIG_EXTENSION):
 		return false
-	
+
 	var new_load:Resource = ResourceLoader.load(CONFIG_DIR + CONFIG_FILE_NAME + CONFIG_EXTENSION, 'Resource', true)
 	SettingsResolution.set_resolution_data(new_load.resolution)
 	SettingsAudio.set_audio_data(new_load.audio)
@@ -68,7 +68,7 @@ func load_settings_JSON()->bool:
 	SettingsLoader.open(CONFIG_DIR + CONFIG_FILE_NAME + CONFIG_EXTENSION, File.READ)
 	var save_data = parse_json(SettingsLoader.get_line())
 	SettingsLoader.close()
-	
+
 	set_save_data_JSON(save_data)								#Dictionary to Settings
 	return true
 

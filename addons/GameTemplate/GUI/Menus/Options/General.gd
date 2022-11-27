@@ -1,5 +1,7 @@
 extends VBoxContainer
 
+# TODO: move to individual scripts
+
 #RESOLUTION
 onready var Resolution_panel:Panel = find_node("Panel")
 onready var Volume_panel:Panel = find_node("Panel2")

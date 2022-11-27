@@ -57,6 +57,7 @@ margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 focus_neighbour_right = NodePath("../ScaleUp")
 size_flags_vertical = 3
+text = "-"
 
 [node name="Scale" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
 margin_left = 54.0
@@ -82,3 +83,4 @@ rect_min_size = Vector2( 50, 50 )
 focus_neighbour_left = NodePath("../ScaleDown")
 focus_neighbour_bottom = NodePath("../../../../../../../MarginContainer/VBoxContainer/Back")
 size_flags_vertical = 3
+text = "+"

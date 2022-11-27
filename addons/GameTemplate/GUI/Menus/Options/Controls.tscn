@@ -13,7 +13,7 @@ script = ExtResource( 3 )
 
 [node name="Section" type="Control" parent="."]
 margin_right = 1920.0
-margin_bottom = 1043.0
+margin_bottom = 1080.0
 size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="Section"]
@@ -30,12 +30,13 @@ custom_constants/margin_bottom = 3
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 1915.0
-margin_bottom = 1042.0
+margin_bottom = 1079.0
 size_flags_horizontal = 3
 
 [node name="ActionsSection" type="VBoxContainer" parent="Section/MarginContainer/ScrollContainer"]
-margin_right = 1910.0
-margin_bottom = 1037.0
+margin_left = 5.0
+margin_right = 1905.0
+margin_bottom = 1074.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 15
@@ -55,8 +56,8 @@ custom_fonts/font = ExtResource( 4 )
 text = "Actions"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Section/MarginContainer/ScrollContainer/ActionsSection"]
-margin_right = 1910.0
-margin_bottom = 1037.0
+margin_right = 1900.0
+margin_bottom = 1074.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 follow_focus = true
@@ -64,18 +65,17 @@ scroll_horizontal_enabled = false
 scroll_vertical_enabled = false
 
 [node name="ActionList" type="VBoxContainer" parent="Section/MarginContainer/ScrollContainer/ActionsSection/ScrollContainer"]
-margin_right = 1910.0
-margin_bottom = 1037.0
+margin_left = 5.0
+margin_right = 1895.0
+margin_bottom = 1074.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="Popup" parent="Section" groups=["KeyBinding"] instance=ExtResource( 5 )]
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
 margin_top = 1044.0
 margin_right = 1920.0
 margin_bottom = 1080.0

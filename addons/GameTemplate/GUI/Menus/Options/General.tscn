@@ -18,7 +18,7 @@ anchor_bottom = 1.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
 anchor_right = 1.0
-margin_bottom = 113.0
+margin_bottom = 110.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/normal_font = ExtResource( 9 )
@@ -54,7 +54,7 @@ margin_right = -1.0
 margin_bottom = -1.0
 script = ExtResource( 3 )
 
-[node name="VBoxContainer" parent="Panel/General/TabContainer/VOLUME" instance=ExtResource( 6 )]
+[node name="VolumeContainer" parent="Panel/General/TabContainer/VOLUME" instance=ExtResource( 6 )]
 
 [node name="GAME" type="Tabs" parent="Panel/General/TabContainer"]
 visible = false
@@ -66,7 +66,7 @@ margin_right = -1.0
 margin_bottom = -1.0
 script = ExtResource( 3 )
 
-[node name="Game" parent="Panel/General/TabContainer/GAME" instance=ExtResource( 2 )]
+[node name="GameContainer" parent="Panel/General/TabContainer/GAME" instance=ExtResource( 2 )]
 
 [node name="GRAPHICS" type="Tabs" parent="Panel/General/TabContainer"]
 visible = false
@@ -80,7 +80,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="VBoxContainer" parent="Panel/General/TabContainer/GRAPHICS" instance=ExtResource( 5 )]
+[node name="GraphicsContainer" parent="Panel/General/TabContainer/GRAPHICS" instance=ExtResource( 5 )]
 
 [node name="CONTROLS" type="Tabs" parent="Panel/General/TabContainer"]
 visible = false
@@ -94,7 +94,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Keybinds" parent="Panel/General/TabContainer/CONTROLS" instance=ExtResource( 7 )]
+[node name="ControlsContainer" parent="Panel/General/TabContainer/CONTROLS" instance=ExtResource( 7 )]
 
 [node name="LANGUAGES" type="Tabs" parent="Panel/General/TabContainer"]
 visible = false
@@ -108,45 +108,24 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Languages" parent="Panel/General/TabContainer/LANGUAGES" instance=ExtResource( 8 )]
+[node name="LanguagesContainer" parent="Panel/General/TabContainer/LANGUAGES" instance=ExtResource( 8 )]
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel/General"]
+[node name="Footer" type="MarginContainer" parent="Panel/General"]
 margin_top = 819.0
 margin_right = 1770.0
 margin_bottom = 855.0
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="HBoxContainer" parent="Panel/General/MarginContainer"]
+[node name="VBoxContainer" type="HBoxContainer" parent="Panel/General/Footer"]
 margin_right = 1770.0
 margin_bottom = 36.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 150
 
-[node name="Back" parent="Panel/General/MarginContainer/VBoxContainer" groups=["General"] instance=ExtResource( 1 )]
-margin_right = 330.0
+[node name="Back" parent="Panel/General/Footer/VBoxContainer" groups=["General"] instance=ExtResource( 1 )]
+margin_right = 1770.0
 margin_bottom = 36.0
 text = "Back"
 
-[node name="GameButton" parent="Panel/General/MarginContainer/VBoxContainer" groups=["General"] instance=ExtResource( 1 )]
-margin_left = 480.0
-margin_right = 810.0
-margin_bottom = 36.0
-text = "Game"
-
-[node name="LanguagesButton" parent="Panel/General/MarginContainer/VBoxContainer" instance=ExtResource( 1 )]
-margin_left = 960.0
-margin_right = 1290.0
-margin_bottom = 36.0
-text = "Languages"
-
-[node name="Controls" parent="Panel/General/MarginContainer/VBoxContainer" instance=ExtResource( 1 )]
-margin_left = 1440.0
-margin_right = 1770.0
-margin_bottom = 36.0
-text = "Controls"
-
-[connection signal="pressed" from="Panel/General/MarginContainer/VBoxContainer/Back" to="Panel/General" method="_on_Back_pressed"]
-[connection signal="pressed" from="Panel/General/MarginContainer/VBoxContainer/GameButton" to="Panel/General" method="_on_Game_pressed"]
-[connection signal="pressed" from="Panel/General/MarginContainer/VBoxContainer/LanguagesButton" to="Panel/General" method="_on_Languages_pressed"]
-[connection signal="pressed" from="Panel/General/MarginContainer/VBoxContainer/Controls" to="Panel/General" method="_on_Controls_pressed"]
+[connection signal="pressed" from="Panel/General/Footer/VBoxContainer/Back" to="Panel/General" method="_on_Back_pressed"]

@@ -1,26 +1,21 @@
 extends Node
 
-
-#var Save / Load
-const CONFIG_DIR: = "user://saves/" #"user://saves/"
+const CONFIG_DIR: = "user://saves/"
 const CONFIG_FILE_NAME: = "settings"
 const CONFIG_EXTENSION: = ".tres"
 
-#Save/ Load
 #Call this method to trigger Settings saving - by default triggered on closing options menu
 func save_settings()->void:
 	save_settings_resource()
-	#save_settings_JSON()
+	#save_settings_JSON() # uncomment to use json instead of resource
 
 func load_settings()->bool:
 	var loaded:bool
 	loaded = load_settings_resource()
-	#loaded = load_settings_JSON()
+	#loaded = load_settings_JSON()  # uncomment to use json instead of resource
 	return loaded
 
-
-
-# Resource VARIATION - new version
+# Save the settings using a resource file
 func save_settings_resource()->void:
 	var new_save: 			= SaveSettings.new()
 	new_save.resolution 	= SettingsResolution.get_resolution_data()
@@ -47,7 +42,7 @@ func load_settings_resource()->bool:
 
 
 
-# JSON VARIATION - Old version
+# Save the settings using a JSON file - Old version (currently not used)
 func save_settings_JSON()->void:
 	var dir: = Directory.new()
 	if not dir.dir_exists(CONFIG_DIR):

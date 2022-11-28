@@ -35,8 +35,8 @@ size_flags_horizontal = 3
 
 [node name="ActionsSection" type="VBoxContainer" parent="Section/MarginContainer/ScrollContainer"]
 margin_left = 5.0
-margin_right = 29.0
-margin_bottom = 14.0
+margin_right = 1905.0
+margin_bottom = 1074.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 15
@@ -66,8 +66,8 @@ scroll_vertical_enabled = false
 
 [node name="ActionList" type="VBoxContainer" parent="Section/MarginContainer/ScrollContainer/ActionsSection/ScrollContainer"]
 margin_left = 5.0
-margin_right = 1881.0
-margin_bottom = 1060.0
+margin_right = 1895.0
+margin_bottom = 1074.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10

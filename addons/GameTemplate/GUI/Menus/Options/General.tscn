@@ -126,6 +126,6 @@ custom_constants/separation = 150
 [node name="Back" parent="Panel/General/Footer/VBoxContainer" groups=["General"] instance=ExtResource( 1 )]
 margin_right = 1770.0
 margin_bottom = 36.0
-text = "Back"
+text = "BACK"
 
 [connection signal="pressed" from="Panel/General/Footer/VBoxContainer/Back" to="Panel/General" method="_on_Back_pressed"]

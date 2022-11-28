@@ -9,7 +9,7 @@ resolution = {
 "Scale": 3
 }
 audio = {
-"Master": 0.59,
+"Main": 0.59,
 "Music": 0.59,
 "SFX": 0.59
 }

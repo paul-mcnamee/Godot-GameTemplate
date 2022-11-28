@@ -1,6 +1,5 @@
 extends Node
 
-
 #AUDIO
 var VolumeMain:float = 0.0 setget set_volume_main
 var VolumeMusic:float = 0.0 setget set_volume_music
@@ -12,17 +11,18 @@ func _ready()->void:
 
 #AUDIO
 func get_volumes()->void:
-	var Main:float	= db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Main")))
-	var Music:float 	= db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
-	var SFX:float 		= db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")))
+#	"Master" audio bus cannot be renamed...
+	var MainAudioBus:float	= db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
+	var MusicAudioBus:float = db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
+	var SFXAudioBus:float 	= db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")))
 
-	set_volume_main(Main)
-	set_volume_music(Music)
-	set_volume_sfx(SFX)
+	set_volume_main(MainAudioBus)
+	set_volume_music(MusicAudioBus)
+	set_volume_sfx(SFXAudioBus)
 
 func set_volume_main(volume:float)->void:
 	VolumeMain = volume
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Main"), linear2db(VolumeMain))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear2db(VolumeMain))
 
 func set_volume_music(volume:float)->void:
 	VolumeMusic = volume
@@ -31,7 +31,6 @@ func set_volume_music(volume:float)->void:
 func set_volume_sfx(volume:float)->void:
 	VolumeSFX = volume
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear2db(VolumeSFX))
-
 
 #SAVING AUDIO
 func get_audio_data()->Dictionary:
@@ -46,8 +45,3 @@ func set_audio_data(audio:Dictionary)->void:
 	SettingsAudio.set_volume_main(audio.Main)
 	SettingsAudio.set_volume_music(audio.Music)
 	SettingsAudio.set_volume_sfx(audio.SFX)
-
-
-
-
-

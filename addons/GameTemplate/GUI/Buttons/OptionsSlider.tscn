@@ -2,7 +2,7 @@
 
 [ext_resource path="res://addons/GameTemplate/Assets/Fonts/OpenSans_24.tres" type="DynamicFont" id=1]
 
-[node name="Master" type="VBoxContainer"]
+[node name="Main" type="VBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 53.0
@@ -13,7 +13,7 @@ margin_right = 1973.0
 margin_bottom = 34.0
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 1 )
-text = "Master"
+text = "Main"
 align = 1
 
 [node name="HSlider" type="HSlider" parent="."]
@@ -21,7 +21,6 @@ margin_top = 38.0
 margin_right = 1973.0
 margin_bottom = 66.0
 size_flags_horizontal = 3
-step = 10.0
 value = 50.0
 ticks_on_borders = true
 

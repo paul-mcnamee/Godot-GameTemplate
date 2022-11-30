@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://addons/GameTemplate/GUI/Menus/Options/Game.gd" type="Script" id=2]
-[ext_resource path="res://addons/GameTemplate/GUI/Buttons/ToggleButton.tscn" type="PackedScene" id=5]
 
 [node name="Game" type="VBoxContainer"]
 anchor_right = 1.0
@@ -12,7 +11,7 @@ custom_constants/separation = 1
 script = ExtResource( 2 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_right = 1920.0
+margin_right = 124.0
 margin_bottom = 25.0
 mouse_filter = 2
 size_flags_horizontal = 3
@@ -27,23 +26,9 @@ align = 1
 
 [node name="DifficultySelect" type="OptionButton" parent="HBoxContainer"]
 margin_left = 70.0
-margin_right = 1920.0
+margin_right = 124.0
 margin_bottom = 25.0
 size_flags_horizontal = 3
 text = "Hard"
 
-[node name="Pacific" parent="." instance=ExtResource( 5 )]
-margin_top = 26.0
-margin_right = 1920.0
-margin_bottom = 49.0
-text = "Pacific Mode"
-
-[node name="Blood" parent="." instance=ExtResource( 5 )]
-margin_top = 50.0
-margin_right = 1920.0
-margin_bottom = 73.0
-text = "Blood / Gore"
-
 [connection signal="item_selected" from="HBoxContainer/DifficultySelect" to="." method="_on_DifficultySelect_item_selected"]
-[connection signal="toggled" from="Pacific" to="." method="_on_Pacific_toggled"]
-[connection signal="toggled" from="Blood" to="." method="_on_Blood_toggled"]

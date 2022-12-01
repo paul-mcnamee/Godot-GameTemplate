@@ -44,6 +44,8 @@ func set_game(value:bool)->void:
 func _ready()->void:
 	pause_mode = Node.PAUSE_MODE_PROCESS
 
+
+# TODO: I believe the only thing used here is for paused and controls.
 #used to get back in menus
 func _input(event)->void:
 	if event.is_action_pressed("ui_cancel"):

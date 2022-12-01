@@ -32,7 +32,6 @@ func load_settings_resource()->bool:
 	if !ResourceLoader.exists(CONFIG_DIR + CONFIG_FILE_NAME + CONFIG_EXTENSION):
 		return false
 
-
 	var new_load:Resource = ResourceLoader.load(CONFIG_DIR + CONFIG_FILE_NAME + CONFIG_EXTENSION, 'Resource', true)
 	SettingsResolution.set_resolution_data(new_load.resolution)
 	SettingsAudio.set_audio_data(new_load.audio)
@@ -65,7 +64,8 @@ func load_settings_JSON()->bool:
 	var save_data = parse_json(SettingsLoader.get_line())
 	SettingsLoader.close()
 
-	set_save_data_JSON(save_data)								#Dictionary to Settings
+	#Dictionary to Settings
+	set_save_data_JSON(save_data)
 	return true
 
 func get_save_data_JSON()->Dictionary:
@@ -74,7 +74,7 @@ func get_save_data_JSON()->Dictionary:
 		resolution = SettingsResolution.get_resolution_data(),
 		audio = SettingsAudio.get_audio_data(),
 		language = {locale = SettingsLanguage.get_language_data()}
-		}
+	}
 	return savedata
 
 func set_save_data_JSON(save_data:Dictionary)->void:

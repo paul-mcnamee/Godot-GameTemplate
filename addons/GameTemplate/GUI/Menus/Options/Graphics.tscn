@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://addons/GameTemplate/GUI/Buttons/TextureButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/GameTemplate/GUI/Buttons/ToggleButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://addons/GameTemplate/GUI/Menus/Options/Graphics.gd" type="Script" id=3]
 
 [node name="VBoxContainer" type="VBoxContainer"]
 anchor_right = 1.0
@@ -10,6 +10,7 @@ margin_left = 50.0
 margin_top = 50.0
 margin_right = -50.0
 margin_bottom = -50.0
+script = ExtResource( 3 )
 
 [node name="Resolution" type="Label" parent="."]
 margin_right = 1820.0
@@ -32,55 +33,21 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 15
 
-[node name="Fullscreen" parent="HBoxContainer/VBoxContainer" instance=ExtResource( 2 )]
+[node name="Resolution" type="OptionButton" parent="HBoxContainer/VBoxContainer"]
 margin_right = 1820.0
+margin_bottom = 25.0
+
+[node name="Fullscreen" parent="HBoxContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 40.0
+margin_right = 1820.0
+margin_bottom = 63.0
 
 [node name="Borderless" parent="HBoxContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 38.0
+margin_top = 78.0
 margin_right = 1820.0
-margin_bottom = 61.0
+margin_bottom = 101.0
 text = "Borderless"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
-margin_top = 76.0
-margin_right = 1820.0
-margin_bottom = 126.0
-size_flags_horizontal = 3
-
-[node name="ScaleDown" parent="HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 0.0
-margin_top = 0.0
-margin_right = 50.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 50, 50 )
-focus_neighbour_right = NodePath("../ScaleUp")
-size_flags_vertical = 3
-text = "-"
-
-[node name="Scale" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
-margin_left = 54.0
-margin_right = 1766.0
-margin_bottom = 50.0
-grow_horizontal = 2
-grow_vertical = 2
-rect_min_size = Vector2( 0, 50 )
-size_flags_horizontal = 3
-size_flags_vertical = 0
-text = "Scale"
-align = 1
-valign = 1
-
-[node name="ScaleUp" parent="HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 1770.0
-margin_top = 0.0
-margin_right = 1820.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 50, 50 )
-focus_neighbour_left = NodePath("../ScaleDown")
-focus_neighbour_bottom = NodePath("../../../../../../../MarginContainer/VBoxContainer/Back")
-size_flags_vertical = 3
-text = "+"
+[connection signal="item_selected" from="HBoxContainer/VBoxContainer/Resolution" to="." method="_on_Resolution_item_selected"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Fullscreen" to="." method="_on_Fullscreen_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Borderless" to="." method="_on_Borderless_pressed"]

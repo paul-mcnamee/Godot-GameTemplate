@@ -31,4 +31,3 @@ func on_show_languages(value:bool)->void:
 #Localization
 func retranslate()->void:
 	pass
-#	find_node("Back").text = tr("BACK")

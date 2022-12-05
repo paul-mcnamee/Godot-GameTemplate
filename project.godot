@@ -410,8 +410,7 @@ theme=false
 
 [gui]
 
-theme/custom="res://addons/GameTemplate/GUI/Themes/MinimalUI.tres"
-theme/custom_font="res://addons/GameTemplate/Assets/Fonts/OpenSans_16.tres"
+theme/custom="res://addons/jc.godot.plane-editor-theme/Themes/Dark/SmoothTab/DarkPlaneST.tres"
 
 [importer_defaults]
 

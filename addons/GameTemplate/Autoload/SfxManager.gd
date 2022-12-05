@@ -1,27 +1,42 @@
 extends Node
 
-var loader: = ResourceAsyncLoader.new()											# Instance of resource async loader
+# Instance of resource async loader
+var loader: = ResourceAsyncLoader.new()
 
-export (int) var start_player_count = 3											# Starting amount of AudioStreamPlayers
-export (String) var bus_name:String = 'SFX'										# Name of the bus sample players will be aassigned to, if wrong defaults to Master
-export (Array, AudioStream) var sample_collection								# If added in scene, can preload from Inspector
-var sample_dictionary: = {}														# Holds loaded samples
+# Starting amount of AudioStreamPlayers
+export (int) var start_player_count = 3
 
-export (float) var retrigger_time:float = 1.0/60.0*2							# Choose time when same sample can be triggered again
+# Name of the bus sample players will be aassigned to, if wrong defaults to Main
+export (String) var bus_name:String = 'Main'
+
+# If added in scene, can preload from Inspector
+export (Array, AudioStream) var sample_collection
+
+# Holds loaded samples
+var sample_dictionary: = {}
+
+# Choose time when same sample can be triggered again
+export (float) var retrigger_time:float = 1.0/60.0*2
 onready var players: = get_children()
-onready var free_players: = players												# List of AudioStreamPlayer not playing sounds
-var active_players: = {}														# List of AudioStreamPlayer playing samples
+
+# List of AudioStreamPlayer not playing sounds
+onready var free_players: = players
+
+# List of AudioStreamPlayer playing samples
+var active_players: = {}
 
 
 func add_players(value:int)->void:
 	for i in value:
-		var player: = AudioStreamPlayer.new()									# Create new player
-		player.bus = bus_name													# Must have an existing audio bus name
+		var player: = AudioStreamPlayer.new()
+		# Must have an existing audio bus name
+		player.bus = bus_name
 		players.append(player)
 		add_child(player)
 
-func load_samples(list:Array)->void:											# Let the manager handle loading sample - async if possible
-	var samples:Array 
+# Let the manager handle loading sample - async if possible
+func load_samples(list:Array)->void:
+	var samples:Array
 	if loader.can_async:
 		samples = yield(loader.load_start( list ), "completed")
 	else:
@@ -34,13 +49,15 @@ func load_samples(list:Array)->void:											# Let the manager handle loading 
 		else:
 			print("SFXmanager already has: ", key)
 
-func add_samples(list:Array)->void:												# You handle loading and just add already loaded sample
+# You handle loading and just add already loaded sample
+func add_samples(list:Array)->void:
 	for sample in list:
 		var key:String = sample.get_path().get_file().get_basename()
 		sample_collection.append(sample)
 		sample_dictionary[key] = sample_collection.size() -1
 
-func remove_samples(list:Array)->void:											# Clear up memory if there are unnecessary samples loaded
+# Clear up memory if there are unnecessary samples loaded
+func remove_samples(list:Array)->void:
 	var array_positions: = []
 	for key in list:
 		array_positions.append(sample_dictionary[key])
@@ -49,22 +66,30 @@ func remove_samples(list:Array)->void:											# Clear up memory if there are 
 	for i in array_positions:
 		sample_collection.remove(i)
 
-func _ready():																	# Add to database all samples preloaded in the Inspector
+func _ready():
+	# Add to database all samples preloaded in the Inspector
 	for i in sample_collection.size():
-		var sample:AudioStreamSample = sample_collection[i]						# Reference sample
-		sample_dictionary[sample.get_path().get_file().get_basename()] = i		# Create entry with file name to reference index in array
-	add_players(start_player_count)												# Add some players to start with
+		# Reference sample
+		var sample:AudioStreamSample = sample_collection[i]
+		# Create entry with file name to reference index in array
+		sample_dictionary[sample.get_path().get_file().get_basename()] = i
+
+	# Add some players to start with
+	add_players(start_player_count)
 	var files = get_files("res://Assets/Sounds","wav")
 	SfxManager.load_samples(files)
 
 
 func play(sample_name:String)->void:
-	if active_players.has(sample_name):											# Same sample is already playing
+	# Same sample is already playing
+	if active_players.has(sample_name):
 		var player:AudioStreamPlayer = active_players[sample_name]
-		if player.get_playback_position() > retrigger_time:						# Checks if same sample has played at least certain length
+		# Checks if same sample has played at least certain length
+		if player.get_playback_position() > retrigger_time:
 			player.play()
 	else:
-		if !free_players.empty():												# There are un-active players
+		# There are inactive players
+		if !free_players.empty():
 			var player:AudioStreamPlayer = free_players.pop_back()
 			active_players[sample_name] = player
 			player.stream = sample_collection[ sample_dictionary[sample_name] ]
@@ -72,16 +97,20 @@ func play(sample_name:String)->void:
 			player.connect("finished", self, "sample_finished", [sample_name])
 		else:
 			print("not enough audio players - creating new")
-			var player: = AudioStreamPlayer.new()								# Create new player
-			player.bus = bus_name												# Must have an existing audio bus name
+
+			# Create new player
+			var player: = AudioStreamPlayer.new()
+
+			# Must have an existing audio bus name
+			player.bus = bus_name
 			add_child(player)
 			active_players[sample_name] = player
 			player.stream = sample_collection[ sample_dictionary[sample_name] ]
 			player.play()
 			player.connect("finished", self, "sample_finished", [sample_name])
 
-
-func sample_finished(sample_name:String)->void:									# Triggered when player is finished sample and not retriggered while playing.
+# Triggered when player is finished sample and not retriggered while playing.
+func sample_finished(sample_name:String)->void:
 	var player:AudioStreamPlayer = active_players[sample_name]
 	player.disconnect("finished", self, "sample_finished")
 	active_players.erase(sample_name)
@@ -90,7 +119,7 @@ func sample_finished(sample_name:String)->void:									# Triggered when player 
 
 func get_files(path,extension):
 	var dir = Directory.new()
-	dir.open(path) 
+	dir.open(path)
 	dir.list_dir_begin()
 	var file_name = dir.get_next()
 	var files = []

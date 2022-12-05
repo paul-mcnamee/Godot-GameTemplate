@@ -1,0 +1,6 @@
+[submodule "addons/jc.godot.plane-editor-theme"]
+	path = addons/jc.godot.plane-editor-theme
+	url = https://github.com/jk7c/jc.godot.plane-editor-theme
+[submodule "addons/godot-simpleTheme"]
+	path = addons/godot-simpleTheme
+	url = https://github.com/themangomago/godot-simpleTheme

@@ -1,6 +1,6 @@
 extends Node
 
-onready var parser = GodotEnv_Parser.new();
+onready var parser = EnvParser.new();
 var env = {};
 
 func _ready():
@@ -12,4 +12,4 @@ func get(name):
 
 	if(env.has(name)):
 		return env[name];
-	return "";
+	return ""

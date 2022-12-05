@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/GameTemplate/GUI/Menus/Options/Languages.gd" type="Script" id=2]
+
+[node name="Languages" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 50.0
+margin_right = -50.0
+margin_bottom = -50.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 15
+script = ExtResource( 2 )
+
+[node name="LanguageContainer" type="HBoxContainer" parent="."]
+margin_right = 1820.0
+margin_bottom = 980.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20

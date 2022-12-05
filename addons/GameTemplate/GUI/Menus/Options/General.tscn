@@ -1,0 +1,137 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://addons/GameTemplate/GUI/Buttons/DefaultButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/GameTemplate/GUI/Menus/Options/Game.tscn" type="PackedScene" id=2]
+[ext_resource path="res://addons/GameTemplate/GUI/Menus/Options/OptionTab.gd" type="Script" id=3]
+[ext_resource path="res://addons/GameTemplate/GUI/Menus/Options/General.gd" type="Script" id=4]
+[ext_resource path="res://addons/GameTemplate/GUI/Menus/Options/Graphics.tscn" type="PackedScene" id=5]
+[ext_resource path="res://addons/GameTemplate/GUI/Menus/Options/Sounds.tscn" type="PackedScene" id=6]
+[ext_resource path="res://addons/GameTemplate/GUI/Menus/Options/Controls.tscn" type="PackedScene" id=7]
+[ext_resource path="res://addons/GameTemplate/GUI/Menus/Options/Languages.tscn" type="PackedScene" id=8]
+[ext_resource path="res://addons/GameTemplate/Assets/Fonts/OpenSans/OpenSans_64.tres" type="DynamicFont" id=9]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+anchor_right = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = ExtResource( 9 )
+bbcode_enabled = true
+bbcode_text = "[center]Options[/center]"
+text = "Options"
+deselect_on_focus_loss_enabled = false
+
+[node name="General" type="VBoxContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 75.0
+margin_top = 150.0
+margin_right = -75.0
+margin_bottom = -75.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+custom_constants/separation = 10
+script = ExtResource( 4 )
+
+[node name="TabContainer" type="TabContainer" parent="Panel/General"]
+margin_right = 1770.0
+margin_bottom = 823.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VOLUME" type="Tabs" parent="Panel/General/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 24.0
+script = ExtResource( 3 )
+
+[node name="VolumeContainer" parent="Panel/General/TabContainer/VOLUME" instance=ExtResource( 6 )]
+
+[node name="GAME" type="Tabs" parent="Panel/General/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 37.0
+margin_right = -1.0
+margin_bottom = -1.0
+script = ExtResource( 3 )
+
+[node name="Game" parent="Panel/General/TabContainer/GAME" instance=ExtResource( 2 )]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = -50.0
+margin_bottom = -50.0
+
+[node name="GRAPHICS" type="Tabs" parent="Panel/General/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 26.0
+margin_right = -1.0
+margin_bottom = -1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 3 )
+
+[node name="GraphicsContainer" parent="Panel/General/TabContainer/GRAPHICS" instance=ExtResource( 5 )]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CONTROLS" type="Tabs" parent="Panel/General/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 26.0
+margin_right = -1.0
+margin_bottom = -1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 3 )
+
+[node name="ControlsContainer" parent="Panel/General/TabContainer/CONTROLS" instance=ExtResource( 7 )]
+
+[node name="LANGUAGES" type="Tabs" parent="Panel/General/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 26.0
+margin_right = -1.0
+margin_bottom = -1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 3 )
+
+[node name="LanguagesContainer" parent="Panel/General/TabContainer/LANGUAGES" instance=ExtResource( 8 )]
+
+[node name="Footer" type="MarginContainer" parent="Panel/General"]
+margin_top = 833.0
+margin_right = 1770.0
+margin_bottom = 855.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Panel/General/Footer"]
+margin_right = 1770.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 150
+
+[node name="Back" parent="Panel/General/Footer/VBoxContainer" groups=["General"] instance=ExtResource( 1 )]
+margin_right = 1770.0
+margin_bottom = 22.0
+text = "BACK"
+
+[connection signal="pressed" from="Panel/General/Footer/VBoxContainer/Back" to="Panel/General" method="_on_Back_pressed"]

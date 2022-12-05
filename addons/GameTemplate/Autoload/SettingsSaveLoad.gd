@@ -1,33 +1,29 @@
 extends Node
 
-
-#var Save / Load
-const CONFIG_DIR: = "user://saves/" #"user://saves/"
+const CONFIG_DIR: = "user://saves/"
 const CONFIG_FILE_NAME: = "settings"
 const CONFIG_EXTENSION: = ".tres"
 
-#Save/ Load
 #Call this method to trigger Settings saving - by default triggered on closing options menu
 func save_settings()->void:
 	save_settings_resource()
-	#save_settings_JSON()
+	#save_settings_JSON() # uncomment to use json instead of resource
 
 func load_settings()->bool:
 	var loaded:bool
 	loaded = load_settings_resource()
-	#loaded = load_settings_JSON()
+	#loaded = load_settings_JSON()  # uncomment to use json instead of resource
 	return loaded
 
-
-
-# Resource VARIATION - new version
+# Save the settings using a resource file
 func save_settings_resource()->void:
 	var new_save: 			= SaveSettings.new()
 	new_save.resolution 	= SettingsResolution.get_resolution_data()
 	new_save.audio			= SettingsAudio.get_audio_data()
 	new_save.inputs 		= SettingsControls.get_input_data()
 	new_save.language		= SettingsLanguage.get_language_data()
-	
+	new_save.game			= SettingsGame.get_game_data()
+
 	var dir: = Directory.new()
 	if not dir.dir_exists(CONFIG_DIR):
 		dir.make_dir_recursive(CONFIG_DIR)
@@ -36,18 +32,17 @@ func save_settings_resource()->void:
 func load_settings_resource()->bool:
 	if !ResourceLoader.exists(CONFIG_DIR + CONFIG_FILE_NAME + CONFIG_EXTENSION):
 		return false
-	
+
 	var new_load:Resource = ResourceLoader.load(CONFIG_DIR + CONFIG_FILE_NAME + CONFIG_EXTENSION, 'Resource', true)
 	SettingsResolution.set_resolution_data(new_load.resolution)
 	SettingsAudio.set_audio_data(new_load.audio)
 	SettingsControls.set_input_data(new_load.inputs)
 	SettingsLanguage.set_language(new_load.language)
+	SettingsGame.set_game_data(new_load.game)
 	return true
 
 
-
-
-# JSON VARIATION - Old version
+# Save the settings using a JSON file - Old version (currently not used)
 func save_settings_JSON()->void:
 	var dir: = Directory.new()
 	if not dir.dir_exists(CONFIG_DIR):
@@ -59,17 +54,20 @@ func save_settings_JSON()->void:
 	SettingsSaver.close()
 
 func load_settings_JSON()->bool:
-	if Settings.HTML5: 										#need to confirm but for now means that HTML5 won't use the saving
-		return	false
+	#need to confirm but for now means that HTML5 won't use the saving
+	if Settings.HTML5:
+		return false
 	#Json to Dictionary
 	var SettingsLoader:File = File.new()
 	if !SettingsLoader.file_exists(CONFIG_DIR + CONFIG_FILE_NAME + CONFIG_EXTENSION):
-		return  false										#We don't have a save to load
+		#nothing to load
+		return false
 	SettingsLoader.open(CONFIG_DIR + CONFIG_FILE_NAME + CONFIG_EXTENSION, File.READ)
 	var save_data = parse_json(SettingsLoader.get_line())
 	SettingsLoader.close()
-	
-	set_save_data_JSON(save_data)								#Dictionary to Settings
+
+	#Dictionary to Settings
+	set_save_data_JSON(save_data)
 	return true
 
 func get_save_data_JSON()->Dictionary:
@@ -78,7 +76,7 @@ func get_save_data_JSON()->Dictionary:
 		resolution = SettingsResolution.get_resolution_data(),
 		audio = SettingsAudio.get_audio_data(),
 		language = {locale = SettingsLanguage.get_language_data()}
-		}
+	}
 	return savedata
 
 func set_save_data_JSON(save_data:Dictionary)->void:

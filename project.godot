@@ -95,9 +95,9 @@ _global_script_classes=[ {
 "path": "res://addons/dialogic/Other/DialogicUtil.gd"
 }, {
 "base": "Reference",
-"class": "GodotEnv_Parser",
+"class": "EnvParser",
 "language": "GDScript",
-"path": "res://addons/GameTemplate/Autoload/parser.gd"
+"path": "res://addons/GameTemplate/Autoload/EnvParser.gd"
 }, {
 "base": "Reference",
 "class": "GutHookScript",
@@ -307,7 +307,7 @@ _global_script_class_icons={
 "DialogicParser": "",
 "DialogicResources": "",
 "DialogicUtil": "",
-"GodotEnv_Parser": "",
+"EnvParser": "",
 "GutHookScript": "",
 "GutTest": "",
 "HistoryRow": "",
@@ -351,7 +351,7 @@ _global_script_class_icons={
 [application]
 
 config/name="GameTemplate"
-run/main_scene="res://LaunchScene/LaunchScene.tscn"
+run/main_scene="res://addons/GameTemplate/LaunchScene/LaunchScene.tscn"
 config/icon="res://icon.png"
 
 [audio]
@@ -369,8 +369,10 @@ SettingsControls="*res://addons/GameTemplate/Autoload/SettingsControls.gd"
 SettingsLanguage="*res://addons/GameTemplate/Autoload/SettingsLanguage.gd"
 SettingsResolution="*res://addons/GameTemplate/Autoload/SettingsResolution.gd"
 SettingsSaveLoad="*res://addons/GameTemplate/Autoload/SettingsSaveLoad.gd"
+SettingsGame="*res://addons/GameTemplate/Autoload/SettingsGame.gd"
 Settings="*res://addons/GameTemplate/Autoload/Settings.gd"
 Options="*res://addons/GameTemplate/Autoload/Options.tscn"
+SilentWolfAutoLoad="*res://addons/GameTemplate/Autoload/SilentWolfAutoLoad.gd"
 Game="*res://addons/GameTemplate/Autoload/Game.gd"
 ScreenFade="*res://addons/GameTemplate/Autoload/ScreenFade.tscn"
 PauseMenu="*res://addons/GameTemplate/Autoload/PauseMenu.tscn"
@@ -382,21 +384,21 @@ HtmlFocus="*res://addons/GameTemplate/Autoload/HtmlFocus.tscn"
 
 [debug]
 
-gdscript/warnings/unassigned_variable=false
-gdscript/warnings/unused_variable=false
-gdscript/warnings/narrowing_conversion=false
-gdscript/warnings/unused_signal=false
-gdscript/warnings/return_value_discarded=false
+gdscript/warnings/unused_class_variable=true
+gdscript/warnings/unsafe_property_access=true
+gdscript/warnings/unsafe_method_access=true
+gdscript/warnings/unsafe_cast=true
+gdscript/warnings/unsafe_call_argument=true
 
 [display]
 
-window/size/width=320
-window/size/height=180
-window/size/test_width=1280
-window/size/test_height=720
+window/size/width=1920
+window/size/height=1080
+window/size/test_width=1920
+window/size/test_height=1080
 window/vsync/use_vsync=false
-window/stretch/mode="2d"
-window/stretch/aspect="keep_height"
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [editor_plugins]
 
@@ -408,7 +410,7 @@ theme=false
 
 [gui]
 
-theme/custom="res://addons/GameTemplate/GUI/default_theme.tres"
+theme/custom="res://addons/jc.godot.plane-editor-theme/Themes/Dark/SmoothTab/DarkPlaneST.tres"
 
 [importer_defaults]
 
@@ -527,7 +529,6 @@ translations=PoolStringArray(  )
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
 environment/default_environment="res://default_env.tres"

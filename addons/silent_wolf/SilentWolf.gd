@@ -11,7 +11,7 @@ onready var Players = Node.new()
 onready var Multiplayer = Node.new()
 
 #
-# SILENTWOLF CONFIG: THE CONFIG VARIABLES BELOW WILL BE OVERRIDED THE 
+# SILENTWOLF CONFIG: THE CONFIG VARIABLES BELOW WILL BE OVERRIDED THE
 # NEXT TIME YOU UPDATE YOUR PLUGIN!
 #
 # As a best practice, use SilentWolf.configure from your game's
@@ -87,13 +87,13 @@ func configure_scores(json_scores_config):
 
 func configure_scores_open_scene_on_close(scene):
 	scores_config.open_scene_on_close = scene
-	
+
 func configure_auth(json_auth_config):
 	auth_config = json_auth_config
 
 func configure_auth_redirect_to_scene(scene):
 	auth_config.open_scene_on_close = scene
-	
+
 func configure_auth_session_duration(duration):
 	auth_config.session_duration = duration
 
@@ -110,16 +110,16 @@ func send_get_request(http_node, request_url):
 	SWLogger.debug("Method: GET")
 	SWLogger.debug("request_url: " + str(request_url))
 	SWLogger.debug("headers: " + str(headers))
-	http_node.request(request_url, headers) 
+	http_node.request(request_url, headers)
 
 
 func send_post_request(http_node, request_url, payload):
 	var headers = [
-		"Content-Type: application/json", 
-		"x-api-key: " + SilentWolf.config.api_key, 
+		"Content-Type: application/json",
+		"x-api-key: " + SilentWolf.config.api_key,
 		"x-sw-plugin-version: " + SilentWolf.version
 	]
-	# TODO: this os specific to post_new_score - should be made generic 
+	# TODO: this os specific to post_new_score - should be made generic
 	# or make a section for each type of post request with inetgrity check
 	# (e.g. also push player data)
 	if "post_new_score" in request_url:

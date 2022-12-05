@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/GameTemplate/GUI/Menus/Options/Game.gd" type="Script" id=2]
+
+[node name="Game" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1920.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 1
+script = ExtResource( 2 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 3840.0
+margin_bottom = 22.0
+mouse_filter = 2
+size_flags_horizontal = 3
+
+[node name="DifficultyLabel" type="Label" parent="HBoxContainer"]
+margin_right = 65.0
+margin_bottom = 22.0
+size_flags_horizontal = 5
+size_flags_vertical = 1
+text = "Difficulty"
+align = 1
+
+[node name="DifficultySelect" type="OptionButton" parent="HBoxContainer"]
+margin_left = 69.0
+margin_right = 3840.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+text = "Hard"
+
+[connection signal="item_selected" from="HBoxContainer/DifficultySelect" to="." method="_on_DifficultySelect_item_selected"]

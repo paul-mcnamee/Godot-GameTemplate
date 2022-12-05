@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/GameTemplate/GUI/Buttons/ToggleButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://addons/GameTemplate/GUI/Menus/Options/Graphics.gd" type="Script" id=3]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 50.0
+margin_right = -50.0
+margin_bottom = -50.0
+script = ExtResource( 3 )
+
+[node name="Resolution" type="Label" parent="."]
+margin_right = 1820.0
+margin_bottom = 23.0
+text = "Resolution"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_top = 27.0
+margin_right = 1820.0
+margin_bottom = 980.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 1820.0
+margin_bottom = 953.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 15
+
+[node name="Resolution" type="OptionButton" parent="HBoxContainer/VBoxContainer"]
+margin_right = 1820.0
+margin_bottom = 25.0
+
+[node name="Fullscreen" parent="HBoxContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 40.0
+margin_right = 1820.0
+margin_bottom = 63.0
+
+[node name="Borderless" parent="HBoxContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 78.0
+margin_right = 1820.0
+margin_bottom = 101.0
+text = "Borderless"
+
+[connection signal="item_selected" from="HBoxContainer/VBoxContainer/Resolution" to="." method="_on_Resolution_item_selected"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Fullscreen" to="." method="_on_Fullscreen_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Borderless" to="." method="_on_Borderless_pressed"]

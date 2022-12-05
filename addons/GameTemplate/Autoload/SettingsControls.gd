@@ -6,10 +6,10 @@ var Actions:Array = ["Right", "Left", "Up", "Down", "Jump"]
 var ActionControls:Dictionary = {}
 
 #CONTROLS
-#func get_controls()->void:
-#	if !SettingsSaveLoad.Settings_loaded:
-#		default_controls()
-#	set_actions_info()
+func get_controls()->void:
+	if !SettingsSaveLoad.Settings_loaded:
+		default_controls()
+	set_actions_info()
 
 func default_controls()->void:	#Reset to project settings controls
 	InputMap.load_from_globals()
@@ -69,7 +69,7 @@ func set_input_data(inputs:Dictionary)->void:
 			ActionControls[action_name].push_back(event)
 	set_InputMap()
 	set_actions_info()
-	
+
 func set_button_data(button:Dictionary)->InputEvent:
 	var NewEvent:InputEvent
 	if button.EventType == "InputEventKey":

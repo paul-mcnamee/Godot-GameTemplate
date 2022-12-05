@@ -17,6 +17,7 @@ WELCOME,Welcome,Bienvenid@
 OPTIONS,Options,Opciones
 CREDITS,Credits,Créditos
 GAME,Game,Juego
+GRAPHICS,Graphics,Gráficos
 MAIN_MENU,Main Menu,Menú principal
 BACK,Back,Atras
 EXIT,Exit,Salir
@@ -30,7 +31,7 @@ FULLSCREEN,Fullscreen window,Pantalla completa
 BORDERLESS,Borderless window,Pantalla sin bordes
 SCALE,Scale,Escalado
 VOLUME,Volume,Volumen
-MASTER,Master,General
+MAIN,Main,Principal
 MUSIC,Music,Música
 SFX,Sounds,Efectos de Sonido
 CONTROLS,Controls,Controles
@@ -42,7 +43,7 @@ ACTIONS,Actions,Acciones
 KEYBOARD,Keyboard,Teclado
 GAMEPAD,Gamepad,Gamepad
 DEFAULT,Default,Defecto
-USE_NEW_CONTROLS,Use new control!,Usar nuevos controles!
+USE_NEW_CONTROLS,Press the key you want to add,Presione la tecla que desea agregar
 CANCEL,Cancel,Cancelar
 LANGUAGES,Languages,Idiomas
 BY,by,por
@@ -61,3 +62,4 @@ SUBMIT,Submit,Enviar
 SIGN UP,Sign Up,Registrarse
 LOADING_SCORES,Loading scores…,Cargando puntuaciones…
 NO_SCORES_YET,No scores yet!,Sin puntuaciones por el momento
+INSANE,Insane,Loco

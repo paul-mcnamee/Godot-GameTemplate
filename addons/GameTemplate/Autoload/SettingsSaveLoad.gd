@@ -22,6 +22,7 @@ func save_settings_resource()->void:
 	new_save.audio			= SettingsAudio.get_audio_data()
 	new_save.inputs 		= SettingsControls.get_input_data()
 	new_save.language		= SettingsLanguage.get_language_data()
+	new_save.game			= SettingsGame.get_game_data()
 
 	var dir: = Directory.new()
 	if not dir.dir_exists(CONFIG_DIR):
@@ -37,6 +38,7 @@ func load_settings_resource()->bool:
 	SettingsAudio.set_audio_data(new_load.audio)
 	SettingsControls.set_input_data(new_load.inputs)
 	SettingsLanguage.set_language(new_load.language)
+	SettingsGame.set_game_data(new_load.game)
 	return true
 
 

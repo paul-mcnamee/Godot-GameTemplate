@@ -12,8 +12,6 @@ var NextScene
 
 var loader: = ResourceAsyncLoader.new()
 
-onready var difficulty = 2 # Easy
-
 func _ready()->void:
 	connect("NewGame", self, "on_NewGame")
 	connect("Continue", self, "on_Continue")

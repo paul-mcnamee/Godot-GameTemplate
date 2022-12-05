@@ -1,28 +1,25 @@
 extends VBoxContainer
 
-func _ready()->void:
-	MenuEvent.connect("Game", self, "on_show_game")
-	MenuEvent.Game = false
+onready var DifficultyOptions: OptionButton =$HBoxContainer/DifficultySelect
 
+func _ready()->void:
 	#Localization
 	SettingsLanguage.connect("ReTranslate", self, "retranslate")
 	retranslate()
-
-#EVENT SIGNALS
-func on_show_game(value:bool)->void:
-	visible = value
-	if visible:
-		get_tree().get_nodes_in_group("Game")[0].grab_focus()
 
 #Localization
 func retranslate()->void:
 	find_node("DifficultyLabel").text = tr("DIFFICULTY")
 
-	var dif_select = find_node("DifficultySelect")
-	dif_select.clear()
-	dif_select.add_item(tr("HARD"))
-	dif_select.add_item(tr("NORMAL"))
-	dif_select.add_item(tr("EASY"))
+	var index = 0
+	DifficultyOptions.clear()
+	for d in SettingsGame.Difficulty:
+		var difficultyOptionValue = SettingsGame.Difficulty.get(d)
+		var difficultyOptionText = tr(SettingsGame.Difficulty.keys()[SettingsGame.Difficulty[d]])
+		DifficultyOptions.add_item(difficultyOptionText, difficultyOptionValue)
+		if SettingsGame.Difficulty[d] == SettingsGame.CurrentDifficulty:
+			DifficultyOptions.selected = index
+		index += 1
 
-func _on_DifficultySelect_item_selected(index):
-	Game.difficulty = index
+func _on_DifficultySelect_item_selected(value):
+	SettingsGame.CurrentDifficulty = value

@@ -45,6 +45,7 @@ Template made for [Godot Wild Jam](https://godotwildjam.com/)
 - SettingsResolutions - handles the resolution changes.
 - SettingsControls - handles the information for controls.
 - SettingsLanguage - handles information for languages.
+- SettingsGame - handles information relating to the game.
 - MenuEvent - handles events between options menu GUI.
 - Hud - reserved for game-specific overlay (HP, Points, etc.).
 - Music - Persistent AudioStreamPlayer for music.

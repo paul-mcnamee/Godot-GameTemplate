@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://addons/GameTemplate/GUI/BindingPopup/Popup.gd" type="Script" id=1]
+[ext_resource path="res://addons/GameTemplate/GUI/Menus/ReBindSection/BindingPopup/Popup.gd" type="Script" id=1]
 
 [node name="Popup" type="Popup"]
 anchor_right = 1.0
@@ -42,14 +42,14 @@ size_flags_horizontal = 3
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer2/Panel/MarginContainer/VBoxContainer"]
 margin_right = 1220.0
-margin_bottom = 33.0
+margin_bottom = 30.0
 size_flags_horizontal = 3
 
 [node name="Message" type="Label" parent="MarginContainer2/Panel/MarginContainer/VBoxContainer/PanelContainer"]
-margin_left = 15.0
-margin_top = 5.0
-margin_right = 1220.0
-margin_bottom = 28.0
+margin_left = 6.0
+margin_top = 4.0
+margin_right = 1214.0
+margin_bottom = 26.0
 size_flags_horizontal = 3
 text = "USE_NEW_CONTROLS"
 align = 1

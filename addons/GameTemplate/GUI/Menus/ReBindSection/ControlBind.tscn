@@ -8,23 +8,23 @@ size_flags_horizontal = 3
 custom_constants/separation = 20
 alignment = 2
 
+[node name="RemoveAction" type="Button" parent="." groups=["ContainerFocus"]]
+margin_right = 33.0
+margin_bottom = 32.0
+hint_tooltip = "Remove control bind"
+text = "  -  "
+
 [node name="PanelContainer" type="PanelContainer" parent="."]
-margin_right = 287.0
-margin_bottom = 33.0
+margin_left = 53.0
+margin_right = 330.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 
 [node name="Name" type="Label" parent="PanelContainer"]
-margin_left = 15.0
-margin_top = 5.0
-margin_right = 67.0
-margin_bottom = 28.0
+margin_left = 6.0
+margin_top = 4.0
+margin_right = 57.0
+margin_bottom = 26.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "Button"
-
-[node name="RemoveAction" type="Button" parent="." groups=["ContainerFocus"]]
-margin_left = 307.0
-margin_right = 330.0
-margin_bottom = 33.0
-hint_tooltip = "Remove control bind"
-text = "  -  "
